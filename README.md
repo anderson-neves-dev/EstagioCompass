@@ -21,3 +21,10 @@ Afora as considerações anteriores, toda estrutura do arquivo README e do próp
 3. [Sprint 3](Sprint%203/README.md)
 4. ...
 
+
+
+
+# Dicas
+
+- [Mark Down - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
+- [Github - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
