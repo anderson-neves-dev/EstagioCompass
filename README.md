@@ -1,30 +1,14 @@
 
 # Instruções
+<h1>Olá! sou Anderson Neves </h1>
+<h1></h1>
+- Diplomado em um curso técnico de Informática pelo IFBA - Campus Brumado, e atualmente cursando o 4° semestre em Bacharel de Sistemas de Informação no IFBA - Campus Vitoria da Conquista na mesma cidade que residuo, tenho uma sólida compreensão dos conceitos de tecnologia da informação, como programação, banco de dados, análise de dados, redes de computadores, sistemas operacionais e conhecimentos em desenvolvimento de software. Para conclusão do meu curso técnico, optei por fazer uma pesquisa dos casos de suicídio na Bahia utilizando a ferramenta Power BI (a qual gostei muito) para o preparo e manuseio de dados para gerar relatórios de acordo com uma base de informações fornecida pelo Ministério da Saúde. Além disso, já realizei freelancers em back-end com moongodb, NodeJs, Mysql, NestJs e ReactJs(Front-end).
 
-Neste arquivo você fará a sua apresentação, assim como a organização geral das suas entregas ao longo das Sprints. Esperamos que haja, minimamente:
- 
-- Uma seção de apresentação, com informações como cidade de residência, instituição de ensino, curso e semestre atual, experiências na área de tecnologia (se houver), hobbies e outras informações que você julgar importante para os monitores.
-
-- Uma ou mais seções para descrever o que estiver aprendendo (resumo), de maneira estruturada. Na medida que você avança no programa de bolsas, deverá alimentar para criar um portfólio de seus estudos.
-
-
-Para cada Sprint, crie um arquivo README.md na respectiva pasta. Este arquivo será o relato da sua entrega. Considere organizar neste arquivo a apresentação dos códigos desenvolvidos, imagens que evidenciam a execução (se necessário) e as imagens dos certificados dos cursos solicitados.
+Atualmente estudando Linux, Python, mysql, mongodb e nodeJs
 
 
-Afora as considerações anteriores, toda estrutura do arquivo README e do próprio repositório é livre.  Você poderá construí-lo à sua maneira. Seja criativo, busque exemplos e/ou se inspire em outros projetos.
-
-
-# Sprints 
+## Sprints 
 
 1. [Sprint 1](Sprint%201/README.md)
-2. [Sprint 2](Sprint%202/README.md)
-3. [Sprint 3](Sprint%203/README.md)
-4. ...
 
 
-
-
-# Dicas
-
-- [Mark Down - Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-- [Github - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
