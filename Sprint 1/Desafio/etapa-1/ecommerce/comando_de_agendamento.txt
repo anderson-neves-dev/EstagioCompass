@@ -1,0 +1,2 @@
+contrab -e
+27 15 * * 1,2,3,4 cd ~/ecommerce && ./processamento_de_vendas.sh
