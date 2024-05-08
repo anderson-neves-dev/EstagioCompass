@@ -8,7 +8,7 @@
 [Etapa I](etapa-1/ecommerce/comando_de_agendamento.txt)
 3. Logo após isso, foi realizado a criação do script consolidador_de_procedimento_de_vendas.sh
 [Etapa I](etapa-1/ecommerce/consolidador_de_procedimento_de_vendas.sh)
-4. Com o agendamento executado três vezes aletrando a data do sistema foi possivel ter os dados contidos no diretorio venda
+4. Com o agendamento executado três vezes aletrando a data do sistema foi possivel ter os dados contidos no diretorio vendas
 [Etapa I](etapa-1/ecommerce/vendas/)
 5. Por fim foi executado o script consolidador_de_procedimento_de_vendas.sh para gerar o arquivo relatoriofina.txt
 [Etapa I](etapa-1/ecommerce/relatoriofina.txt)
