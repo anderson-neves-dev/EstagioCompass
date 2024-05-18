@@ -1,13 +1,56 @@
+# 👋 Olá! Sou Anderson Neves 
 
-<h1>Olá! sou Anderson Neves </h1>
+🎓 **Diplomado em Técnico de Informática pelo IFBA - Campus Brumado**
 
-- E sou diplomado em um curso técnico de Informática pelo IFBA - Campus Brumado, e atualmente cursando o 4° semestre em Bacharel de Sistemas de Informação no IFBA - Campus Vitoria da Conquista na mesma cidade que residuo, tenho uma sólida compreensão dos conceitos de tecnologia da informação, como programação, banco de dados, análise de dados, redes de computadores, sistemas operacionais e conhecimentos em desenvolvimento de software. Para conclusão do meu curso técnico, optei por fazer uma pesquisa dos casos de suicídio na Bahia utilizando a ferramenta Power BI (a qual gostei muito) para o preparo e manuseio de dados para gerar relatórios de acordo com uma base de informações fornecida pelo Ministério da Saúde. Além disso, já realizei freelancers em back-end com moongodb, NodeJs, Mysql, NestJs e ReactJs(Front-end).
+🎓 **Cursando o 4° semestre em Bacharelado de Sistemas de Informação no IFBA - Campus Vitória da Conquista**
 
-Atualmente estudando Linux, Python, mysql, mongodb e nodeJs
+📍 **Residindo em Vitória da Conquista, Bahia**
 
+---
 
-## Sprints 
+## Sobre Mim
+
+Tenho uma sólida compreensão dos conceitos de tecnologia da informação, incluindo:
+
+- 💻 **Programação**
+- 🗄️ **Banco de Dados**
+- 📊 **Análise de Dados**
+- 🌐 **Redes de Computadores**
+- 🖥️ **Sistemas Operacionais**
+- 🛠️ **Desenvolvimento de Software**
+
+Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os casos de suicídio na Bahia, utilizando a ferramenta **Power BI** para preparar e manusear dados, gerando relatórios a partir de uma base de informações fornecida pelo Ministério da Saúde. 
+
+---
+
+## 💼 Experiência em Freelancers
+
+- 🔧 **Back-End**:
+  - MongoDB
+  - Node.js
+  - MySQL
+  - NestJS
+
+- 🌟 **Front-End**:
+  - React.js
+
+---
+
+## 📚 Atualmente Estudando
+
+- 🐧 **Linux**
+- 🐍 **Python**
+- 🗄️ **MySQL**
+- 🗄️ **MongoDB**
+- 💻 **Node.js**
+
+---
+
+## 🚀 Sprints
 
 1. [Sprint 1](Sprint%201/README.md)
 
+---
+
+Espero que você tenha gostado! Se precisar de mais alguma coisa, é só avisar. 😊
 
