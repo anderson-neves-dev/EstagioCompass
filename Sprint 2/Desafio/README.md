@@ -2,12 +2,15 @@
 
 ## 1️⃣ Criação do Modelo Relacional
 - Primeiramente, foi normalizada a tabela `tb_locacao` para um modelo relacional.
-  ![Modelo Relacional](ETAPA-I/modeloRelacional.jpeg)
+  <div style="text-align: center; padding: 10px;">
+    <img src="ETAPA-I/modeloRelacional.jpeg" alt="Modelo Relacional" width="300" style="padding: 10px;">
+  </div>
 
 ## 2️⃣ Criação do Modelo Dimensional a partir do Relacional
 - Em seguida, foi criado o modelo dimensional a partir do relacional no esquema estrela. Foram criadas dimensões importantes e mescladas algumas tabelas.
-  ![Modelo Dimensional](ETAPA-I/modeloDimensional.jpeg)
-
+  <div style="text-align: center; padding: 10px;">
+    <img src="ETAPA-I/modeloDimensional.jpeg" alt="Modelo Dimensional" width="300" style="padding: 10px;">
+  </div>
 ## 3️⃣ Criação do Script SQL `ModeloRelacional.sql`
 - Este script, ao ser executado, gera as tabelas e atributos correspondentes ao modelo relacional.
   [Modelo Relacional SQL](ETAPA-II/ModeloRelacional.sql)
