@@ -16,8 +16,8 @@
 
 ## 📜 Certificado do Curso SQL para Análise de Dados: Do básico ao avançado
 - Cobertura completa de SQL para análise de dados.
-<img src="Certificados/Certificado_SQL_Para_Analise_de_Dados.jpg" alt="Curso SQL para Análise de Dados: Do básico ao avançado" width="300">
+<img src="Certificados/Certificado_SQL_Para_Analise_de_Dados.jpg" alt="Curso SQL para Análise de Dados: Do básico ao avançado" width="400">
 
 ## 📜 Certificado AWS Partner: Sales Accreditation (Business) (Portuguese)
 - Acreditação de vendas para parceiros AWS.
-<img src="Certificados/Certificado_AWS_PARTNER.png" alt="AWS Partner: Sales Accreditation" width="300">
+<img src="Certificados/Certificado_AWS_PARTNER.png" alt="AWS Partner: Sales Accreditation" width="400">
