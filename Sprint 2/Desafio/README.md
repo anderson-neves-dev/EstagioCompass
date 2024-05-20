@@ -7,7 +7,7 @@
   </div>
 
 ## 2️⃣ Criação do Modelo Dimensional a partir do Relacional
-- Em seguida, foi criado o modelo dimensional a partir do relacional no esquema estrela. Foram criadas dimensões importantes e mescladas algumas tabelas.
+- Em seguida, foi criado o modelo dimensional a partir do relacional no esquema estrela. Foram criadas dimensões importantes e mescladas algumas tabelas, além da criação da tabela fato.
   <div style="text-align: center; padding: 10px;">
     <img src="ETAPA-I/modeloDimensional.jpeg" alt="Modelo Dimensional" width="500" style="padding: 10px;">
   </div>
