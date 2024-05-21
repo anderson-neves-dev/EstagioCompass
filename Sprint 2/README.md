@@ -1,4 +1,4 @@
-# Exercícios
+# 📝 Exercícios
 
 ## 1️⃣ Exportar o resultado da query que obtém os 10 livros mais caros para um arquivo CSV
 - Foi solicitado que nessa exportação se utilizasse o caractere `;` (ponto e vírgula) como separador, e que o conteúdo do arquivo tivesse as seguintes colunas, respectivamente: CodLivro, Titulo, CodAutor, NomeAutor, Valor, CodEditora e NomeEditora.
@@ -8,7 +8,7 @@
 - Foi solicitado que nessa exportação se utilizasse o caractere `|` (pipe) como separador, e que o conteúdo do arquivo tivesse as seguintes colunas, respectivamente: CodEditora, NomeEditora, QuantidadeLivros.
   ![Resolução](Execicios/As_Cinco_Editoras_Com_Mais_Livros.csv)
 
-# Evidências
+# 🔍 Evidências
 
 - Nenhuma
 
