@@ -1,4 +1,4 @@
-# 👋 Olá! Sou Anderson Neves 
+# 👋 Olá Sou Anderson Neves 
 
 🎓 **Diplomado em Técnico de Informática pelo IFBA - Campus Brumado**
 
@@ -30,9 +30,14 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
   - Node.js
   - MySQL
   - NestJS
-
+  - SQL
+  
 - 🌟 **Front-End**:
+  - JavaScript
   - React.js
+  - TypeScript
+  - Tailwind CSS
+  - Styled Components
 
 ---
 
@@ -42,16 +47,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 - 🐍 **Python**
 - 🗄️ **MySQL**
 - 🗄️ **MongoDB**
+- 🗄️ **SQL**
 - 💻 **Node.js**
 
 ---
-
-## 🚀 Sprints
-
-1. [Sprint 1](Sprint%201/README.md)
-2. [Sprint 2](Sprint%202/README.md)
-
----
-
-Espero que você tenha gostado! Se precisar de mais alguma coisa, é só avisar. 😊
-
