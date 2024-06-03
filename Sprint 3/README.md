@@ -11,31 +11,31 @@
 
 #### Apresentar o ator/atriz com maior número de filmes e a respectiva quantidade
 
-[Resposta](Execicios/Etapa-1.txt)
+[Resposta etapa 1](Execicios/Etapa-1.txt)
 
 ### Etapa 2
 
 #### Apresentar a média de receita de bilheteria bruta dos principais filmes, considerando todos os atores
 
-[Resposta](Execicios/Etapa-2.txt)
+[Resposta etapa 2](Execicios/Etapa-2.txt)
 
 ### Etapa 3
 
 #### Apresentar o ator/atriz com a maior média de receita de bilheteria bruta por filme do conjunto de dados
 
-[Resposta](Execicios/Etapa-3.txt)
+[Resposta etapa 3](Execicios/Etapa-3.txt)
 
 ### Etapa 4
 
 #### Realizar a contagem de aparições dos filmes no dataset, listando-os pela quantidade de vezes em que estão presentes. Considerando a ordem decrescente e, em segundo nível, o nome do filme.
 
-[Resposta](Execicios/Etapa-4.txt)
+[Resposta etapa 4](Execicios/Etapa-4.txt)
 
 ### Etapa 5
 
 #### Apresentar a lista dos atores ordenada pela receita bruta de bilheteria de seus filmes (coluna Total Gross), em ordem decrescente.
 
-[Resposta](Execicios/Etapa-5.txt)
+[Resposta etapa 5](Execicios/Etapa-5.txt)
 
 # 🔍 Evidências
 
