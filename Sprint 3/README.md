@@ -3,7 +3,9 @@
 ## 1️⃣ Código do exercício 3 - ETL com Python
 
 - Dado a base de dados ![actors.csv](Execicios/actors.csv) foi solicitado para fazer querys divididas em etapas neste arquivo e armazenar cada uma em um arquivo .txt.
-  ![Resolução](Execicios/resolucao.py)
+ 
+### Código para solução
+ ![resolução.py](Execicios/resolucao.py)
 
 ### Etapa 1
 
