@@ -205,3 +205,178 @@ plt.show()
   <div style="text-align: center; padding: 10px;">
     <img src="/Sprint 3/Desafio/Evidencias/qtd_apps_mature_17.png" width="100%" style="padding: 10px;">
   </div>
+
+## 7️⃣ Query para `Top 10 apps mais visualizados`
+
+```
+# Criando um dataFrame para armenar apenas os aplicativos pagos
+paid_apps = dataset.loc[df['Type'] == 'Paid']
+
+# Selecionando os 5 apps com mais visualizações
+top_5_apps_paid = paid_apps.sort_values(['Reviews'], ascending=False, inplace=False).head(5)
+
+# Selecionado apenas as colunas Apps, Reviews e Category
+top_5_apps_paid = top_5_apps_paid[['App', 'Reviews', 'Category']].reset_index(drop=True)
+
+# Criando a coluna de ranking com 1°, 2°, 3°...
+ranking = [f"{i}°" for i in range(1, 6)]
+
+# Adicionando a coluna de ranking ao DataFrame
+top_5_apps_paid.insert(0, 'Ranking', ranking)
+
+# Estilizando o DataFrame para centralizar o conteúdo
+top_5_apps_paid = top_5_apps_paid.style.set_table_styles(
+    [{'selector': 'td', 'props': [('text-align', 'left')]},
+     {'selector': 'th', 'props': [('text-align', 'left')]}]
+).set_properties(**{'text-align': 'left'}).hide(axis='index')
+
+# Exibi o dataFrame
+display(top_5_apps_paid)
+```
+
+- Resultado obtido:
+<div style="text-align: center; padding: 10px;">
+  <img src="/Sprint 3/Desafio/Evidencias/ranking_apps_mais_visualizados.png" width="100%" style="padding: 10px;">
+</div>
+
+## 7️⃣ Query para `Top 5 Apps pagos com mais visualizações`
+
+```
+# Criando um dataFrame para armenar apenas os aplicativos pagos
+paid_apps = dataset.loc[df['Type'] == 'Paid']
+
+# Selecionando os 5 apps com mais visualizações
+top_5_apps_paid = paid_apps.sort_values(['Reviews'], ascending=False, inplace=False).head(5)
+
+# Selecionado apenas as colunas Apps, Reviews e Category
+top_5_apps_paid = top_5_apps_paid[['App', 'Reviews', 'Category']].reset_index(drop=True)
+
+# Criando a coluna de ranking com 1°, 2°, 3°...
+ranking = [f"{i}°" for i in range(1, 6)]
+
+# Adicionando a coluna de ranking ao DataFrame
+top_5_apps_paid.insert(0, 'Ranking', ranking)
+
+# Estilizando o DataFrame para centralizar o conteúdo
+top_5_apps_paid = top_5_apps_paid.style.set_table_styles(
+    [{'selector': 'td', 'props': [('text-align', 'left')]},
+     {'selector': 'th', 'props': [('text-align', 'left')]}]
+).set_properties(**{'text-align': 'left'}).hide(axis='index')
+
+# Exibi o dataFrame
+display(top_5_apps_paid)
+```
+
+- Resultado obtido:
+<div style="text-align: center; padding: 10px;">
+  <img src="/Sprint 3/Desafio/Evidencias/top_5_apps_pagos_mais_Instalados.png" width="100%" style="padding: 10px;">
+</div>
+
+## 7️⃣ Query para `App pago com melhor avaliação e o mais instalado`
+
+```
+# Ordenando aplicativos pagos pelos valores das colunas 'Rating' e 'Installs' em ordem decrescente
+best_rated_and_viewed_apps = paid_apps.sort_values(['Rating', 'Installs'], ascending=False, inplace=False)
+
+# Selecionar apenas as colunas 'App', 'Installs' e 'Rating', retirando o índice e pegando apenas o primeiro
+best_rated_and_viewed_apps = best_rated_and_viewed_apps[['App', 'Installs', 'Rating']].reset_index(drop=True).head(1)
+
+# Criando a figura e os eixos
+fig, ax = plt.subplots(figsize=(4,4))
+
+# Removendo os eixos
+ax.axis('off')
+
+# Adicionando título
+plt.title('Aplicativo pago com melhor avaliação e o mais instalado', fontsize=16)
+
+# Adicionando informações do app com maior preço
+texto = (
+   f"App pago melhor avaliado e o mais instalado\n\n"
+   f"App: {best_rated_and_viewed_apps.loc[0, 'App']}\n"
+   f"Avaliação: {best_rated_and_viewed_apps.loc[0, 'Rating']}\n"
+   f"Downloads: {best_rated_and_viewed_apps.loc[0, 'Installs']:,}"
+)
+
+# Adicionando texto ao card e estilizando as cores, bordas e padding
+plt.text(0.5, 0.5, texto, fontsize=16, color='#6DD08E', va='center', ha='center', bbox=dict(
+   facecolor='#232323',
+   edgecolor='#6DD08E',
+   boxstyle='round, pad=2',
+   alpha=0.9,
+))
+
+plt.show()
+```
+
+- Resultado obtido:
+ <div style="text-align: center; padding: 10px;">
+  <img src="/Sprint 3/Desafio/Evidencias/App_Pago_melhor_avaliado_e_visualizado.png" width="100%" style="padding: 10px;">
+</div>
+
+## Query para `Quantidade de preços de apps pagos` e gerar gráfico modelo dispersão
+
+```
+# Realizando a soma das quantidades de preços de apps pagos
+price_frequency = paid_apps['Price'].value_counts()
+
+# Criando uma array para mudar o tamanho dos pontos que aparecem no gráfico de acordo a sua quantidade
+point_size = []
+for count in price_frequency:
+        point_size.append(count+100)
+
+# Criando a figura, os eixos e colocando uma cor de fundo
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.set_facecolor('#232321')
+
+# Adicionando títulos, rótulos, grid e customizando as cores de fundo
+plt.title('Frequência de preços de apps pagos', fontsize=20)
+plt.xlabel('Preço ($)', fontsize=13)
+plt.ylabel('Quantidade', fontsize=13)
+plt.grid(True, color='#203f1f')
+
+# Criando gráfico dispersão
+plt.scatter(price_frequency.index, price_frequency, s=point_size , color='#6DD08E')
+plt.show()
+```
+
+- Gráfico obtido:
+ <div style="text-align: center; padding: 10px;">
+  <img src="/Sprint 3/Desafio/Evidencias/frequencia_de_precos.png" width="100%" style="padding: 10px;">
+</div>
+
+## Query para `Numero de últimas atualizações por Mês e Ano` e criação e gráfico de linha
+
+```
+#Conversão da coluna 'Last Update' para o tipo date
+dataset['Last Updated'] = pd.to_datetime(dataset['Last Updated'], errors='coerce')
+
+# Criando coluna com apenas ano de ultima atualização
+dataset['Last Updated Year'] = dataset['Last Updated'].dt.year
+
+# Criando coluna com apenas mes de ultima atualização
+dataset['Last Updated Month'] = dataset['Last Updated'].dt.month
+
+# Agrupando os dados por ano e mes e fazendo a conta de quantos aplicativos aparecem e adicionando a um dataFRame
+month_and_year_grouped = dataset.groupby(['Last Updated Year', 'Last Updated Month']).size().reset_index(name='Counts')
+
+#Criando a coluna de mes e ano no dataFrame
+month_and_year_grouped['YearMonth'] = month_and_year_grouped['Last Updated Year'].astype(str) + '-' + grouped['Last Updated Month'].astype(str).str.zfill(2)
+
+#Criando figura, gráfico de linha, titulos e rotulos e suas estilizações para ficar mais legível
+fig, ax = plt.subplots(figsize=(26, 10))
+ax.set_facecolor('#232321')
+plt.plot(month_and_year_grouped['YearMonth'], month_and_year_grouped['Counts'], marker='o', color='#6DD08E', linestyle='-')
+plt.title('Número de ultimas atualizações por Mês e Ano', fontsize=16)
+plt.xlabel('Ano-Mês', fontsize=16)
+plt.ylabel('Número de Atualizações',fontsize=16)
+plt.grid(True, color='#20581f')
+plt.ylim(top = 2500)
+plt.xticks(rotation=80, fontsize= 14)
+plt.show()
+```
+
+- Gráfico obtido:
+   <div style="text-align: center; padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/ultimas_atualizacoes_mes_ano.png" width="100%" style="padding: 10px;">
+  </div>
