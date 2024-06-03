@@ -393,8 +393,5 @@ plt.ylim(top = 2500)
 plt.xticks(rotation=80, fontsize= 14)
 plt.show()
 ```
-
-- Gráfico obtido:
-   <div style="text-align: center; padding: 10px;">
-    <img src="/Sprint 3/Desafio/Evidencias/ultimas_atualizacoes_mes_ano.png" width="100%" style="padding: 10px;">
-  </div>
+# 🐍 Código completo em `jupyter`
+[desafio.ipynb](desafio.ipynb)
