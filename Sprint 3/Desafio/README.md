@@ -60,6 +60,8 @@ dataset['Category'] = dataset['Category'].str.replace('_', ' ')
 
 ⚠️ **Obs.:** Como os tiveram mais de 5 aplicativos com o mesmo número de instalação (a play store arredonda esses números) foi utilizado o critério de desempate o número de visualização dos apps
 
+- Código:
+
 ```
 top_5_apps = dataset.sort_values(['Installs','Reviews'], ascending=False, inplace=False).head(5)
 
@@ -85,6 +87,8 @@ plt.show()
   </div>
 
 ## 7️⃣ Query para pegar a frequência de aplicativos por categoria e criação do gráfico de pizza
+
+- Código:
 
 ```
 # Contando a frequencia de cada categoria
@@ -131,6 +135,8 @@ plt.show()
 
 ## 8️⃣ Query para selecionar o aplicativo mais caro do dataset e organizar os dados em caixa de texto
 
+- Código:
+
 ```
 # Selecionando o aplicativo mais caro
 most_expensive_app = dataset.loc[dataset['Price'].idxmax()]
@@ -171,6 +177,8 @@ plt.show()
 
 ## 9️⃣ Query para contagem de apps com classificação `Mature 17+` e organizar os dados em caixa de texto
 
+- Código:
+
 ```
 # Selecionando apenas apps com classificação 'Mature 17+'
 mature_17_apps = dataset[dataset['Content Rating'] == 'Mature 17+']
@@ -208,6 +216,8 @@ plt.show()
 
 ## 🔟 Query para `Top 10 apps mais visualizados`
 
+- Código:
+
 ```
 # Criando um dataFrame para armenar apenas os aplicativos pagos
 paid_apps = dataset.loc[df['Type'] == 'Paid']
@@ -241,6 +251,8 @@ display(top_5_apps_paid)
 
 ## 1️⃣1️⃣ Query para `Top 5 Apps pagos com mais visualizações`
 
+- Código:
+
 ```
 # Criando um dataFrame para armenar apenas os aplicativos pagos
 paid_apps = dataset.loc[df['Type'] == 'Paid']
@@ -273,6 +285,8 @@ display(top_5_apps_paid)
 </div>
 
 ## 1️⃣2️⃣ Query para `App pago com melhor avaliação e o mais instalado`
+
+- Código:
 
 ```
 # Ordenando aplicativos pagos pelos valores das colunas 'Rating' e 'Installs' em ordem decrescente
@@ -316,6 +330,8 @@ plt.show()
 
 ## 1️⃣3️⃣ Query para `Quantidade de preços de apps pagos` e gerar gráfico modelo dispersão
 
+- Código:
+
 ```
 # Realizando a soma das quantidades de preços de apps pagos
 price_frequency = paid_apps['Price'].value_counts()
@@ -346,6 +362,8 @@ plt.show()
 </div>
 
 ## 1️⃣4️⃣ Query para `Numero de últimas atualizações por Mês e Ano` e criação e gráfico de linha
+
+- Código:
 
 ```
 #Conversão da coluna 'Last Update' para o tipo date
