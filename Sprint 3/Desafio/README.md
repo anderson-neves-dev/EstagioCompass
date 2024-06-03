@@ -4,7 +4,7 @@
 
 - Primeiramente, foi realizado um estudo da base de dados enviada, olhando os dados das colunas e vendo os padrões que nela contiam, para fins de achar possiveis problemas para serem resolvidos
 
-## 2️⃣ Importação das bibliotecas pandas, matplotlib e leitura da base de dados
+## 2️⃣ Importação das bibliotecas `pandas, matplotlib` e leitura da base de dados
 
 ```
 # Importação da biblioteca pandas e matplotlib
@@ -56,7 +56,7 @@ dataset['Price'] = dataset['Price'].str.replace('$', '').astype(float)
 dataset['Category'] = dataset['Category'].str.replace('_', ' ')
 ```
 
-## 6️⃣ Query para pegar os 5 apps mais instalados e criação do gráfico de barras
+## 6️⃣ Query para `Top 5 apps mais instalados` e criação do gráfico de barras
 
 ⚠️ **Obs.:** Como os tiveram mais de 5 aplicativos com o mesmo número de instalação (a play store arredonda esses números) foi utilizado o critério de desempate o número de visualização dos apps
 
@@ -86,7 +86,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/top_5_apps_mais_Instalados.png" width="100%" style="padding: 10px;">
   </div>
 
-## 7️⃣ Query para pegar a frequência de aplicativos por categoria e criação do gráfico de pizza
+## 7️⃣ Query para `Frequência de aplicativos por categoria` e criação do gráfico de pizza
 
 - Código:
 
@@ -133,7 +133,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/frequencia_de_apps_por_categoria.png" width="100%" style="padding: 10px;">
   </div>
 
-## 8️⃣ Query para selecionar o aplicativo mais caro do dataset e organizar os dados em caixa de texto
+## 8️⃣ Query para selecionar o `Aplicativo mais caro` do dataset e organizar os dados em caixa de texto
 
 - Código:
 
@@ -175,7 +175,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/app_mais_caro.png" width="100%" style="padding: 10px;">
   </div>
 
-## 9️⃣ Query para contagem de apps com classificação `Mature 17+` e organizar os dados em caixa de texto
+## 9️⃣ Query para `Contagem de apps com classificação Mature 17+` e organizar os dados em caixa de texto
 
 - Código:
 
