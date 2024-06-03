@@ -8,7 +8,7 @@
 
 - Após a analise da base de dados, percebi que uma linha estava sem a categoria e estava pulanado as colunas, então adicionei a categoria 'Outro' nesta linha para não perder os dados que nela contiam
   <div style="text-align: center; padding: 10px;">
-    <img src="/Sprint 3/Desafio/Evidencias/linha_sem_categoria.png" width="500" style="padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/linha_sem_categoria.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 3️⃣ Tratamento de linhas duplicadas
@@ -16,7 +16,7 @@
 - Ao análisar a base de dados, também percebi que muitas linhas estavam dúplicadas e algumas estavam variando apenas a coluna de reviews, então deixei apenas a linha que tinha o maior número de reviwes, em que lógicamente seria a última extração dos dados daquele aplicativo.
 - Exemplo de algumas duplicações que tinham na base de dados:
   <div style="text-align: center; padding: 10px;">
-    <img src="/Sprint 3/Desafio/Evidencias/exemplo_linha_duplicada.png" width="500" style="padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/exemplo_linha_duplicada.png" width="100%" style="padding: 10px;">
   </div>
 - Código de solução para o problema:
 
