@@ -129,7 +129,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/frequencia_de_apps_por_categoria.png" width="100%" style="padding: 10px;">
   </div>
 
-## 7️⃣ Query para selecionar o aplicativo mais caro do dataset e organizar os dados em caixa de texto
+## 8️⃣ Query para selecionar o aplicativo mais caro do dataset e organizar os dados em caixa de texto
 
 ```
 # Selecionando o aplicativo mais caro
@@ -169,7 +169,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/app_mais_caro.png" width="100%" style="padding: 10px;">
   </div>
 
-## 7️⃣ Query para contagem de apps com classificação `Mature 17+` e organizar os dados em caixa de texto
+## 9️⃣ Query para contagem de apps com classificação `Mature 17+` e organizar os dados em caixa de texto
 
 ```
 # Selecionando apenas apps com classificação 'Mature 17+'
@@ -206,7 +206,7 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/qtd_apps_mature_17.png" width="100%" style="padding: 10px;">
   </div>
 
-## 7️⃣ Query para `Top 10 apps mais visualizados`
+## 🔟 Query para `Top 10 apps mais visualizados`
 
 ```
 # Criando um dataFrame para armenar apenas os aplicativos pagos
@@ -239,7 +239,7 @@ display(top_5_apps_paid)
   <img src="/Sprint 3/Desafio/Evidencias/ranking_apps_mais_visualizados.png" width="100%" style="padding: 10px;">
 </div>
 
-## 7️⃣ Query para `Top 5 Apps pagos com mais visualizações`
+## 1️⃣1️⃣ Query para `Top 5 Apps pagos com mais visualizações`
 
 ```
 # Criando um dataFrame para armenar apenas os aplicativos pagos
@@ -272,7 +272,7 @@ display(top_5_apps_paid)
   <img src="/Sprint 3/Desafio/Evidencias/top_5_apps_pagos_mais_Instalados.png" width="100%" style="padding: 10px;">
 </div>
 
-## 7️⃣ Query para `App pago com melhor avaliação e o mais instalado`
+## 1️⃣2️⃣ Query para `App pago com melhor avaliação e o mais instalado`
 
 ```
 # Ordenando aplicativos pagos pelos valores das colunas 'Rating' e 'Installs' em ordem decrescente
@@ -314,7 +314,7 @@ plt.show()
   <img src="/Sprint 3/Desafio/Evidencias/App_Pago_melhor_avaliado_e_visualizado.png" width="100%" style="padding: 10px;">
 </div>
 
-## Query para `Quantidade de preços de apps pagos` e gerar gráfico modelo dispersão
+## 1️⃣3️⃣ Query para `Quantidade de preços de apps pagos` e gerar gráfico modelo dispersão
 
 ```
 # Realizando a soma das quantidades de preços de apps pagos
@@ -345,7 +345,7 @@ plt.show()
   <img src="/Sprint 3/Desafio/Evidencias/frequencia_de_precos.png" width="100%" style="padding: 10px;">
 </div>
 
-## Query para `Numero de últimas atualizações por Mês e Ano` e criação e gráfico de linha
+## 1️⃣4️⃣ Query para `Numero de últimas atualizações por Mês e Ano` e criação e gráfico de linha
 
 ```
 #Conversão da coluna 'Last Update' para o tipo date
