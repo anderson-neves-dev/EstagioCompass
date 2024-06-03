@@ -39,7 +39,7 @@
 
 # 🔍 Evidências
 
-- Algumas linhas da base de dados [actors.csv](Execicios/actors.csv) contiam `,` no nome dos atores e gerava o dataFrame de forma errada. Mas, nas linhas que ocorriam isso estavam dentro de aspas dupla, como o exemplo abaixo:
+- Algumas linhas da base de dados [actors.csv](Execicios/actors.csv) contiam `,` no nome dos atores e gerava os dados de forma incorreta. Mas, nas linhas que ocorriam isso estavam dentro de aspas dupla, como o exemplo abaixo:
 
 ```
 "Robert Downey, Jr.",3947.30 ,53,74.50 ,The Avengers,623.40
