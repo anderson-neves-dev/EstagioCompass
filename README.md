@@ -53,7 +53,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 ---
 ## 🧩 Sprints 
 
-1. [Sprint 1](Sprint%201/README.md)
-2. [Sprint 2](Sprint%202/README.md)
-3. [Sprint 3](Sprint%203/README.md)
+1. [Sprint 1](Sprint%201)
+2. [Sprint 2](Sprint%202)
+3. [Sprint 3](Sprint%203)
 
