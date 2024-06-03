@@ -29,7 +29,7 @@
 
 #### Realizar a contagem de aparições dos filmes no dataset, listando-os pela quantidade de vezes em que estão presentes. Considerando a ordem decrescente e, em segundo nível, o nome do filme.
 
-![Resposta](Execicios/Etapa-4.txt)
+[Resposta](Execicios/Etapa-4.txt)
 
 ### Etapa 5
 
