@@ -1,8 +1,19 @@
 # 📋 Etapas
 
-## 1️⃣ Analise dos dados da planilha [google](/Sprint%203/Desafio/googleplaystore.csv)
+## 1️⃣ Analise dos dados da base de dados [googleplaystore.csv](/Sprint%203/Desafio/googleplaystore.csv)
 
 - Primeiramente, foi realizado um estudo da base de dados enviada, olhando os dados das colunas e vendo os padrões que nela contiam, para fins de achar possiveis problemas para serem resolvidos
+
+## 1️⃣ Importação das bibliotecas pandas, matplotlib e leitura da base de dados
+
+```
+# Importação da biblioteca pandas e matplotlib
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Leitura do arquivo googleplaystore.CSV
+dataset = pd.read_csv('googleplaystore.csv')
+```
 
 ## 2️⃣ Tratamento de linha sem categoria
 
@@ -31,7 +42,7 @@ dataset['App'] = dataset['App'].str.lower()
 dataset = dataset.sort_values('Reviews', ascending=False).drop_duplicates(subset=['App'], keep='first')
 ```
 
-## 4️⃣ Eliminação de caracteres em colunas contendo números e conversão para tipos primitivos
+## 4️⃣ Eliminação de caracteres e conversão para tipos primitivos
 
 ```
 # Convertendo para int a coluna Installs, convertendo valores inválidos em NaN e removendo esses valores
@@ -45,10 +56,33 @@ dataset['Price'] = dataset['Price'].str.replace('$', '').astype(float)
 dataset['Category'] = dataset['Category'].str.replace('_', ' ')
 ```
 
-## 5️⃣ Criação do Script SQL `ModeloDimensional.sql`
+## 5️⃣ Query para pegar os 5 apps mais instalados e criação do gráfico de barras
 
-- Ao executar o script, serão criadas _views_ das tabelas dimensões e a tabela fato, conforme mostrado no modelo dimensional. Essas _views_ serão criadas a partir do modelo relacional.
-  [Modelo Dimensional SQL](ETAPA-III/ModeloDimensional.sql)
+⚠️ **Obs.:** Como os tiveram mais de 5 aplicativos com o mesmo número de instalação (a play store arredonda esses números) foi utilizado o critério de desempate o número de visualização dos apps
+
+```
+top_5_apps = dataset.sort_values(['Installs','Reviews'], ascending=False, inplace=False).head(5)
+
+fig, ax = plt.subplots(figsize=(6, 8))
+
+ax.set_facecolor('#232321')
+
+#Configurações de gráfico de barra
+plt.bar(top_5_apps['App'], top_5_apps['Installs'], color='#6DD08E')
+plt.xlabel('Aplicativos', fontsize=12)
+plt.ylabel('Instalações (Bilhões)', fontsize=12)
+plt.title('Top 5 Aplicativos Mais Instalados na Google Play Store\n Obs.: Critério de desempate adotado foi por numeros de reviews', fontsize=16)
+plt.xticks(rotation=30, ha='right')
+plt.tight_layout()
+
+# Exibição do gráfico
+plt.show()
+```
+
+- Gráfico gerado:
+  <div style="text-align: center; padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/top_5_apps_mais_Instalados.png" width="100%" style="padding: 10px;">
+  </div>
 
 ## 6️⃣ Criação do Script `Normalizando_ER_e_Dimensional.sql`
 
