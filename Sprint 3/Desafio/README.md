@@ -84,14 +84,124 @@ plt.show()
     <img src="/Sprint 3/Desafio/Evidencias/top_5_apps_mais_Instalados.png" width="100%" style="padding: 10px;">
   </div>
 
-## 7️⃣ Criação do Script `Normalizando_ER_e_Dimensional.sql`
+## 7️⃣ Query para pegar a frequência de aplicativos por categoria e criação do gráfico de pizza
 
-- Este script gera as tabelas do modelo relacional e as _views_ do modelo dimensional, tudo em um único script.
-  [Normalizando ER e Dimensional SQL](ETAPA-III/Normalizando_ER_e_Dimencional.sql)
+```
+# Contando a frequencia de cada categoria
+frequency_apps_by_category = dataset['Category'].value_counts()
+```
 
-## 7️⃣ Criação do Script `Normalizando_e_Inserindo_dados_tb_locacao.sql`
+-Como tiveram muitos dados para o gráfico de pizza utilizei o parametro 'explode' para organizar as categorias que tiveram pouca quantidade de apps
 
-- Este script gera as tabelas do modelo relacional, insere os dados de `tb_locacao` e gera as _views_ do modelo dimensional, tudo em um único script.
+```
+#Adicionando explode diferentes para quantidades variadas para fins de legibilidade
+explode = []
+for count in frequency_apps_by_category:
+    if count > 300:
+        explode.append(0.01)
+    elif count >50:
+        explode.append(0.2)
+    else:
+        explode.append(0.6)
 
-  ⚠️ **Obs.:** Este script só pode ser executado dentro da conexão com o banco `concessionaria.sqlite`.
-  [Normalizando e Inserindo Dados SQL](ETAPA-III/Normalizando_e_Inserindo_dados_tb_locacao.sql)
+#Configurando o gráfico de pizza
+plt.figure(figsize=(16, 12))
+plt.pie(
+    frequency_apps_by_category,
+    explode=explode,
+    labels=frequency_apps_by_category.index,
+    labeldistance= 1.07,
+    autopct='%1.1f%%',
+    pctdistance=0.94,
+    startangle=27,
+)
+plt.title('Frequência de Aplicativos por Categoria',fontsize=16)
+plt.axis('equal')
+
+#Adicionando legenda e ajustando sua posição com loc e bbox_to_anchor
+plt.legend( frequency_apps_by_category.index, title="Categorias", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+plt.show()
+```
+
+- Gráfico gerado:
+  <div style="text-align: center; padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/frequencia_de_apps_por_categoria.png" width="100%" style="padding: 10px;">
+  </div>
+
+## 7️⃣ Query para selecionar o aplicativo mais caro do dataset e organizar os dados em caixa de texto
+
+```
+# Selecionando o aplicativo mais caro
+most_expensive_app = dataset.loc[dataset['Price'].idxmax()]
+
+# Configurando a figura
+fig, ax = plt.subplots(figsize=(6, 4))
+
+# Removendo os eixos e deixando só o card
+ax.axis('off')
+
+plt.title('Aplicativo mais caro', fontsize=16, weight='bold')
+
+# Adicionando informações do app com maior preço
+texto = (
+    f"App mais caro\n\n"
+    f"App: {most_expensive_app['App']}\n"
+    f"Categoria: {most_expensive_app['Category']}\n"
+    f"Preço: ${most_expensive_app['Price']:.2f}"
+)
+
+
+# Adicionando texto ao card e estilizando as cores, bordas e padding
+plt.text(0.5, 0.5, texto, fontsize=16, color='#6DD08E', va='center', ha='center', bbox=dict(
+    facecolor='#232323',
+    edgecolor='#6DD08E',
+    boxstyle='round, pad=2',
+    alpha=0.9,
+))
+
+
+plt.show()
+```
+
+- Resultado:
+  <div style="text-align: center; padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/app_mais_caro.png" width="100%" style="padding: 10px;">
+  </div>
+
+## 7️⃣ Query para contagem de apps com classificação `Mature 17+` e organizar os dados em caixa de texto
+
+```
+# Selecionando apenas apps com classificação 'Mature 17+'
+mature_17_apps = dataset[dataset['Content Rating'] == 'Mature 17+']
+# Realizando a contagem da quantidade de aplicativos com classificação 'Mature 17+'
+count_mature_17_apps = mature_17_apps['Content Rating'].value_counts().get('Mature 17+', 0)
+
+# Configurando a figura
+fig, ax = plt.subplots(figsize=(6, 4))
+
+# Removendo os eixos e deixando só o card
+ax.axis('off')
+
+# Adicionando título
+plt.title('Contagem de Apps com Classificação Mature 17+', fontsize=16, weight='bold')
+
+# Adicionando informações da contagem dos apps com classificação 'Mature 17+'
+texto = (
+    f"Apps classicados como Mature 17+ \nTotal:  {count_mature_17_apps}"
+)
+
+# Adicionando texto ao card e estilizando as cores, bordas e padding
+plt.text(0.5, 0.5, texto, fontsize=16, color='#6DD08E', va='center', ha='center', bbox=dict(
+    facecolor='#232323',
+    edgecolor='#6DD08E',
+    boxstyle='round, pad=2',
+    alpha=0.9,
+))
+plt.show()
+```
+
+- Resultado:
+  <div style="text-align: center; padding: 10px;">
+    <img src="/Sprint 3/Desafio/Evidencias/qtd_apps_mature_17.png" width="100%" style="padding: 10px;">
+  </div>
