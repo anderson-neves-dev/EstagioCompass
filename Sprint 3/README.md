@@ -5,33 +5,33 @@
 - Dado a base de dados ![actors.csv](Execicios/actors.csv) foi solicitado para fazer querys divididas em etapas neste arquivo e armazenar cada uma em um arquivo .txt.
   ![Resolução](Execicios/resolucao.py)
 
-## Etapa 1
+### Etapa 1
 
-### Apresentar o ator/atriz com maior número de filmes e a respectiva quantidade
+#### Apresentar o ator/atriz com maior número de filmes e a respectiva quantidade
 
 ![Resposta](Execicios/Etapa-1.txt)
 
-## Etapa 2
+### Etapa 2
 
-### Apresentar a média de receita de bilheteria bruta dos principais filmes, considerando todos os atores
+#### Apresentar a média de receita de bilheteria bruta dos principais filmes, considerando todos os atores
 
 ![Resposta](Execicios/Etapa-2.txt)
 
-## Etapa 3
+### Etapa 3
 
-### Apresentar o ator/atriz com a maior média de receita de bilheteria bruta por filme do conjunto de dados
+#### Apresentar o ator/atriz com a maior média de receita de bilheteria bruta por filme do conjunto de dados
 
 ![Resposta](Execicios/Etapa-3.txt)
 
-## Etapa 4
+### Etapa 4
 
-### Realizar a contagem de aparições dos filmes no dataset, listando-os pela quantidade de vezes em que estão presentes. Considerando a ordem decrescente e, em segundo nível, o nome do filme.
+#### Realizar a contagem de aparições dos filmes no dataset, listando-os pela quantidade de vezes em que estão presentes. Considerando a ordem decrescente e, em segundo nível, o nome do filme.
 
 ![Resposta](Execicios/Etapa-4.txt)
 
-## Etapa 5
+### Etapa 5
 
-### Apresentar a lista dos atores ordenada pela receita bruta de bilheteria de seus filmes (coluna Total Gross), em ordem decrescente.
+#### Apresentar a lista dos atores ordenada pela receita bruta de bilheteria de seus filmes (coluna Total Gross), em ordem decrescente.
 
 ![Resposta](Execicios/Etapa-5.txt)
 
