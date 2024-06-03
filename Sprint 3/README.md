@@ -4,7 +4,7 @@
 
 - Dado a base de dados [actors.csv](Execicios/actors.csv) foi solicitado para fazer querys divididas em etapas neste arquivo e armazenar cada uma em um arquivo .txt.
  
-### Código para solução
+### Código para resolução
  [resolução.py](Execicios/resolucao.py)
 
 ### Etapa 1
