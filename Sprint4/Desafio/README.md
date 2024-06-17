@@ -20,7 +20,7 @@ docker build -t carguru .
 ```
 docker run -it --name container-carguru carguru
 ```
-## 2️⃣ Após pesquisas, concluí que é possivel sim reutilizar um dos containers parados e não precisando criar novos para executar novamente a imagem. Segue abaixo o comando:
+## 2️⃣ Após pesquisas, concluí que é possível sim reutilizar um dos containers parados, sendo não necessário criar novos para executar novamente a imagem. Segue abaixo o comando:
 ```
 docker start -i <nome ou id do container>
 ```
