@@ -1,6 +1,6 @@
 # 📋 Etapas
 
-## 1️⃣ Arquivo `[Dockfile]` para executar o código `carguru.py`
+## 1️⃣ Arquivo `Dockfile` para executar o código `carguru.py`
 
 - Primeiramente, foi salvo o código [carguru.py](/Sprint4/Desafio/Etapa-1/app/carguru.py) dentro do diretório app.
 - Após isso, foi criado o arquivo `Dockfile` abaixo para gerar uma imagem, em que utilizei como base a imagem python3.
@@ -20,7 +20,7 @@ docker build -t carguru .
 ```
 docker run -it --name container-carguru carguru
 ```
-## 2️⃣ Após pesquisas, concluí que é possivel sim reutilizar um dos containers parados e não precisando criar novos para executar novamente a imagem. O comando é:
+## 2️⃣ Após pesquisas, concluí que é possivel sim reutilizar um dos containers parados e não precisando criar novos para executar novamente a imagem. Segue abaixo o comando:
 ```
 docker start -i <nome ou id do container>
 ```
