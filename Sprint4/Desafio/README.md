@@ -25,7 +25,7 @@ docker run -it --name container-carguru carguru
 docker start -i <nome ou id do container>
 ```
 ## 🐋 [Programa completo etapa 1 e 2](/Sprint4/Desafio/Etapa-1/)
-## 3️⃣ Criação de script capaz de receber strings via input e gerar o hash da string por meio do algoritmo SHA-1 e imprimir na tela com o método hexdigest
+## 3️⃣ Criação de script capaz de receber strings via input, gerar o hash da string por meio do algoritmo `SHA-1` e imprimir na tela com o método `hexdigest()`.
 - Script de mascaramento:
     ```
     import hashlib
@@ -69,7 +69,7 @@ docker start -i <nome ou id do container>
   CMD ["python3", "app/index.py"]
   ```
 
-  - Para criar a imagem e o container foram utilizados os seguintes comandos, respecticamente:
+- Para criar a imagem e o container foram utilizados os seguintes comandos, respecticamente:
   ```
   docker build -t mascarar-dados .
   ```
