@@ -5,7 +5,7 @@
 - A base de dados escolhida foi `Demonstrativos de Acidentes - RIOSP` que corresponde aos acidentes realizados nas rodovias de ligamento das cidades de São Paulo ao Rio de Janeiro entre março de 2022 e maio de 2024, a obtenção desses dados foi realizada pela Agência Nacional de Transportes Terrestres, entre que está disponível no link abaixo:
 - [Demonstrativos de Acidentes - RIOSP](https://dados.gov.br/dados/conjuntos-dados/acidentes-rodovias)
 
-## 2️⃣ Analise e tratamento da base de dados em .csv
+## 2️⃣ Análise e tratamento da base de dados em .csv
 
 - Após escolher a base de dados, fiz um estudo dos dados que contém no arquivo utilizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratementos.
 - Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então convertir para a condificação utf-8 utilizando o comando `incov` do linux, como exibido abaixo:
