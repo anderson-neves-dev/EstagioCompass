@@ -13,7 +13,7 @@
 ```
 iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_acidentes_riosp_utf8.csv
 ```
-- Analisei também que o formato de data não estava no padrão correspondete ao tipo TIMESTAMP do s3 select, então fiz o tratamento da coluna de data utilizando o LibreOfficeCalc de DD/MM/AAAA para AAAA-MM-DD, como mostradado abaixo:
+- Analisei também que o formato de data não estava no padrão correspondete ao tipo TIMESTAMP do s3 select, então fiz o tratamento da coluna de data utilizando o LibreOfficeCalc de DD/MM/AAAA para AAAA-MM-DD, como mostrado abaixo:
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/coluna-data-nao-formatada.png" width="100%" style="padding: 10px;">
   </div>
@@ -41,7 +41,7 @@ sudo apt install awscli
 
 ## 5️⃣ Consulta proposta
 
-- A consulta desejada na base de dados é: `Exibir o total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos e uma frase com o arredodamento do total envolvídos registrados na BR-116 de São Paulo ao Rio de Janeiro durante o ano de 2023.`
+- A consulta desejada na base de dados é: `Exibir o total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos e uma frase com o arredondamento do total envolvidos registrados na BR-116 de São Paulo ao Rio de Janeiro durante o ano de 2023.`
 
 ## 6️⃣ Desenvolvimento do código em `python` para consulta utilizando o `S3 Select` através da biblioteca `boto3`
 
@@ -74,7 +74,7 @@ sudo apt install awscli
       },
       OutputSerialization = {'CSV': {}},
   )
-  print('Total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos, frase de arredodamento de total envolvídos')
+  print('Total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos, frase de arredondamento de total envolvidos')
   for event in response['Payload']:
       if 'Records' in event:
           records = event['Records']['Payload'].decode('utf-8')
@@ -256,8 +256,8 @@ SUM(CAST(mortos AS DECIMAL)+
          > 100 THEN UPPER('mais de 100 vitimas')
          ELSE UPPER('MENOS DE 100 VITIMAS') END 
 ```
-- Filtragem para pegar somente os acidentes registrados no ano de 2023 e na br 116 nos trechos do estado de São Paulo(SP) ou Rio de Janeiro(RJ)
-  - Utilizando a função de data `EXTRACT()` para extrair somente o ano(year) da coluna data, em conjunto com a a função de conversão `CAST()` para a tipagem TIMESTAMP que é tipo do parametro da função extract;
+- Filtragem para pegar somente os acidentes registrados no ano de 2023 na BR-116, nos trechos do estado de São Paulo (SP) ou Rio de Janeiro (RJ).
+  - Utilizando a função de data `EXTRACT()` para extrair somente o ano(year) da coluna data, em conjunto com a função de conversão `CAST()` para a tipagem TIMESTAMP que é tipo do parâmetro da função extract;
   - Operadores lógicos `and` e `or`;
   - Função de string `UPPER()` para padronizar os dados da coluna trecho(alguns dados estavam em minúsculo e outros em maiúsculo) para realizar a comparação entre strings;
   ```
