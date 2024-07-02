@@ -202,7 +202,7 @@ SUM(CAST(mortos AS DECIMAL)+
             CAST(levemente_feridos AS DECIMAL)+
             CAST(ilesos AS DECIMAL)),
 ```
--Função condicional para exibir frase com o número total de vítimas de fora arredondada;
+- Função condicional para exibir frase com o número total de vítimas de fora arredondada;
   - Utilizando `CASE` e a função de string `UPPER()` para padronizar a resposta em caixa alta.
 ```
         CASE WHEN 
