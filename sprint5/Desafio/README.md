@@ -7,8 +7,8 @@
 
 ## 2️⃣ Analisar a base de dados
 
-- Após escolher a base de dados, fiz um estudo dos dados que contiam no arquivo utlizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratementos.
-- Percebi que a codificação estava em latin-1 e alguns dados estama vindo incorretos, então convertir para a condificação utf-8 utilizando o comando incov do linux, como exibido abaixo:
+- Após escolher a base de dados, fiz um estudo dos dados que contém no arquivo utilizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratementos.
+- Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então convertir para a condificação utf-8 utilizando o comando `incov` do linux, como exibido abaixo:
 
 ```
 iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_acidentes_riosp_utf8.csv
@@ -21,31 +21,31 @@ iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_aci
     <img src="/sprint5/Desafio/Evidencias/coluna-data-formatada.png" width="100%" style="padding: 10px;">
   </div>
 
-## 3️⃣ Criação do bucket S3 e armazenamento da base de dados
+## 3️⃣ Criação do bucket S3 na AWS e armazenamento da base de dados
 
-- Após o tratamento dos dados, criei um bucket S3 na aws e armazenei a base de dados no bucket
+- Após o tratamento dos dados, criei um bucket S3 com o nome `basededadossprint5` na aws e armazenei a base de dados no bucket
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/buckets3.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 4️⃣ Configuração de acesso ao bucket s3
 
-- Para conseguir extrair os dados do bucket, instalei a aws cli
+- Para conseguir extrair os dados do bucket, instalei a aws cli com o comando: 
 ```
 sudo apt install awscli
 ```
-- Com a cli da aws instalada configurei com as minhas chaves de acesso do usuário raiz utilizando `aws configure` e colando o token no terminal, para verificar se estava conectado dei o comando `aws s3 ls` para listar os meus buckets.
+- Com a cli da aws instalada configurei com as minhas chaves de acesso do usuário raiz utilizando `aws configure` e colando o token no terminal. Para verificar se estava conectado, rodei o comando `aws s3 ls` para listar os meus buckets.
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/listagemBucketsAwsCli.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 5️⃣ Consulta proposta
 
-- A consulta desejada na base de dados é: `Exibir o total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos e uma frase com o arredodamento do total envolvídos registrados na BR-116 de São Paulo ao Rio de Janeiro durante o ano de 2023`
+- A consulta desejada na base de dados é: `Exibir o total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos e uma frase com o arredodamento do total envolvídos registrados na BR-116 de São Paulo ao Rio de Janeiro durante o ano de 2023.`
 
 ## 6️⃣ Desenvolvimento do código em python para consulta utilizando o S3 Select através da biblioteca boto3
 
-- Para conseguir realizar a consulta proposta e acessar o bucket s3 qu estão a base de dados dos acidentes localmente, desenvolvi um código em python utlizando a biblioteca boto3
+- Para conseguir realizar a consulta proposta e acessar localmente o bucket s3 basededadossprint5 que está a base de dados dos acidentes, desenvolvi um código em python utlizando a biblioteca boto3
 - Instalação da biblioteca boto3:
   ```
   pip3 install boto3
