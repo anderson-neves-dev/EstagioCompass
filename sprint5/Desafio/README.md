@@ -13,7 +13,7 @@
 ```
 iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_acidentes_riosp_utf8.csv
 ```
-- Analisei também que o formato de data não estava no padrão correspondete ao tipo TIMESTAMP do s3 select, então fiz o tratamento da coluna de data utilizando o LibreOfficeCalc de DD/MM/AAAA para AAAA-MM-DD, como mostrado abaixo:
+- Analisei também que o formato de data não estava no padrão correspondente ao tipo TIMESTAMP do s3 select, então fiz o tratamento da coluna de data utilizando o LibreOfficeCalc de DD/MM/AAAA para AAAA-MM-DD, como mostrado abaixo:
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/coluna-data-nao-formatada.png" width="100%" style="padding: 10px;">
   </div>
