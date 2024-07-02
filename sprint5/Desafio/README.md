@@ -2,13 +2,13 @@
 
 ## 1️⃣ Baixar uma base de dados no portal de dados públicos do Governo Brasileiro 
 
-- A base de dados escolhida foi `Demonstrativos de Acidentes - RIOSP` que corresponde aos acidentes realizados nas rodovias de ligamento das cidades de São Paulo ao Rio de Janeiro entre março de 2022 e maio de 2024, a obtenção desses dados foi realizada pela Agência Nacional de Transportes Terrestres, entre que está disponível no link abaixo:
+- A base de dados escolhida foi `Demonstrativos de Acidentes - RIOSP`, que corresponde aos acidentes ocorridos nas rodovias que ligam as cidades de São Paulo ao Rio de Janeiro entre março de 2022 e maio de 2024, a obtenção desses dados foi realizada pela Agência Nacional de Transportes Terrestres (ANTT), e está disponível no link abaixo:
 - [Demonstrativos de Acidentes - RIOSP](https://dados.gov.br/dados/conjuntos-dados/acidentes-rodovias)
 
 ## 2️⃣ Análise e tratamento da base de dados em .csv
 
 - Após escolher a base de dados, fiz um estudo dos dados que contém no arquivo utilizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratamentos.
-- Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então fiz a conversão para a codificação utf-8 utilizando o comando `incov` do linux, como exibido abaixo:
+- Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então fiz a conversão para a codificação utf-8 utilizando o comando `iconv` do linux, como exibido abaixo:
 
 ```
 iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_acidentes_riosp_utf8.csv
@@ -23,18 +23,18 @@ iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_aci
 
 ## 3️⃣ Criação do bucket S3 na AWS e armazenamento da base de dados
 
-- Após o tratamento dos dados, criei um bucket S3 com o nome `basededadossprint5` na aws e armazenei a base de dados no bucket
+- Após o tratamento dos dados, criei um bucket S3 com o nome `basededadossprint5` na AWS e armazenei a base de dados no bucket
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/buckets3.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 4️⃣ Configuração de acesso ao bucket s3
 
-- Para conseguir extrair os dados do bucket, instalei a aws cli com o comando: 
+- Para conseguir extrair os dados do bucket, instalei a AWS cli com o comando: 
 ```
 sudo apt install awscli
 ```
-- Com a cli da aws instalada configurei com as minhas chaves de acesso do usuário raiz utilizando `aws configure` e colando o token no terminal. Para verificar se estava conectado, rodei o comando `aws s3 ls` para listar os meus buckets.
+- Com a cli da AWS instalada configurei com as minhas chaves de acesso do usuário raiz utilizando `aws configure` e colando o token no terminal. Para verificar se estava conectado, rodei o comando `aws s3 ls` para listar os meus buckets.
   <div style="text-align: center; padding: 10px;">
     <img src="/sprint5/Desafio/Evidencias/listagemBucketsAwsCli.png" width="100%" style="padding: 10px;">
   </div>
@@ -45,7 +45,7 @@ sudo apt install awscli
 
 ## 6️⃣ Desenvolvimento do código em `python` para consulta utilizando o `S3 Select` através da biblioteca `boto3`
 
-- Para conseguir realizar a consulta proposta e acessar localmente o bucket s3 basededadossprint5 que está a base de dados dos acidentes, desenvolvi um código em python utlizando a biblioteca boto3
+- Para conseguir realizar a consulta proposta e acessar localmente o bucket s3 basededadossprint5 que está a base de dados dos acidentes, desenvolvi um código em python utilizando a biblioteca boto3
 - Instalação da biblioteca boto3:
   ```
   pip3 install boto3
