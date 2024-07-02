@@ -43,7 +43,7 @@ sudo apt install awscli
 
 - A consulta desejada na base de dados é: `Exibir o total de acidentes, total de vítimas ilesas, levemente feridas, moderamente feridas, gravemente feridas, fatalidades, soma total de envolvidos e uma frase com o arredodamento do total envolvídos registrados na BR-116 de São Paulo ao Rio de Janeiro durante o ano de 2023.`
 
-## 6️⃣ Desenvolvimento do código em python para consulta utilizando o S3 Select através da biblioteca boto3
+## 6️⃣ Desenvolvimento do código em `python` para consulta utilizando o `S3 Select` através da biblioteca `boto3`
 
 - Para conseguir realizar a consulta proposta e acessar localmente o bucket s3 basededadossprint5 que está a base de dados dos acidentes, desenvolvi um código em python utlizando a biblioteca boto3
 - Instalação da biblioteca boto3:
