@@ -1,6 +1,6 @@
 # 📋 Etapas
 
-## 1️⃣ Baixar uma base de dados no portal de dados públicos do Governo Brasileiro [googleplaystore.csv](/Sprint%203/Desafio/googleplaystore.csv)
+## 1️⃣ Baixar uma base de dados no portal de dados públicos do Governo Brasileiro 
 
 - A base de dados escolhida foi `Demonstrativos de Acidentes - RIOSP` que corresponde aos acidentes realizados nas rodovias de ligamento das cidades de São Paulo ao Rio de Janeiro entre março de 2022 e maio de 2024, a obtenção desses dados foi realizada pela Agência Nacional de Transportes Terrestres, entre que está disponível no link abaixo: 
 [Demonstrativos de Acidentes - RIOSP](https://dados.gov.br/dados/conjuntos-dados/acidentes-rodovias)
