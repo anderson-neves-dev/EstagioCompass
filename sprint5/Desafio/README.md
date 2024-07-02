@@ -162,32 +162,39 @@ sudo apt install awscli
 
 ## 7️⃣ Detalhes da consulta
 
-- Contagem da quantidade total de acidentes utilizando a função de agregação `COUNT()`:
+- Contagem da quantidade total de acidentes;
+  - Utilizando a função de agregação `COUNT()`:
 ```
 SELECT
     COUNT(*),
 ```
-- Soma da quantidade de vítimas ilesas utilizando a função de agregação `SUM()` e a função de conversão para o tipo DECIMAL(os tipos INT e INTEGER não funcionaram com a minha base de dados) `CAST()`:
+- Soma da quantidade de vítimas ilesas;
+  - Utilizando a função de agregação `SUM()` e a função de conversão `CAST()` para o tipo DECIMAL(os tipos INT e INTEGER não funcionaram com a minha base de dados):
   ```
   SUM(CAST(ilesos AS DECIMAL)),
   ```
-- Soma da quantidade de vítimas levemente feridas utilizando a função de agregação `SUM()` e a função de conversão para o tipo DECIMAL `CAST()`:
+- Soma da quantidade de vítimas levemente feridas;
+  - Utilizando a função de agregação `SUM()` e a função de conversão `CAST()` para o tipo DECIMAL:
   ```
         SUM(CAST(levemente_feridos AS DECIMAL)),
   ```
-  - Soma da quantidade de vítimas moderamente feridas utilizando a função de agregação `SUM()` e a função de conversão para o tipo DECIMAL `CAST()`:
+- Soma da quantidade de vítimas moderamente feridas;
+  - Utilizando a função de agregação `SUM()` e a função de conversão `CAST()` para o tipo DECIMAL:
   ```
         SUM(CAST(moderadamente_feridos AS DECIMAL)),
   ```
-- Soma da quantidade de vítimas gravemente feridas utilizando a função de agregação `SUM()` e a função de conversão para o tipo DECIMAL `CAST()`:
+- Soma da quantidade de vítimas gravemente feridas;
+  - Utilizando a função de agregação `SUM()` e a função de conversão `CAST()` para o tipo DECIMAL:
   ```
         SUM(CAST(gravemente_feridos AS DECIMAL)),
   ```
-- Soma da quantidade das fatalidades utilizando a função de agregação `SUM()` e a função de conversão para o tipo DECIMAL `CAST()`:
+- Soma da quantidade das fatalidades;
+  - Utilizando a função de agregação `SUM()` e a função de conversão `CAST()` para o tipo DECIMAL:
   ```
         SUM(CAST(mortos AS DECIMAL)),
   ```
-- Soma do total de vítimas utilizando a função de agregação `SUM()`, adição e a função de conversão para o tipo DECIMAL `CAST()`
+- Soma do total de vítimas;
+  - Utilizando a função de agregação `SUM()`, adição e a função de conversão `CAST()` para o tipo DECIMAL:
 ```
 SUM(CAST(mortos AS DECIMAL)+
             CAST(gravemente_feridos AS DECIMAL)+
@@ -195,7 +202,8 @@ SUM(CAST(mortos AS DECIMAL)+
             CAST(levemente_feridos AS DECIMAL)+
             CAST(ilesos AS DECIMAL)),
 ```
--Função condicional para exibir frase com o número total de vítimas de fora arredondada utilizando `CASE` e a função de string `UPPER()` para padronizar a resposta em caixa alta
+-Função condicional para exibir frase com o número total de vítimas de fora arredondada;
+  - Utilizando `CASE` e a função de string `UPPER()` para padronizar a resposta em caixa alta.
 ```
         CASE WHEN 
             SUM(CAST(mortos AS DECIMAL)+
@@ -248,7 +256,10 @@ SUM(CAST(mortos AS DECIMAL)+
          > 100 THEN UPPER('mais de 100 vitimas')
          ELSE UPPER('MENOS DE 100 VITIMAS') END 
 ```
-- Filtragem para pegar somente os acidentes registrados no ano de 2023 e na br 116 nos trechos do estado de São Paulo(SP) ou Rio de Janeiro(RJ) utilizando a função de data `EXTRACT()` para extrair somente o ano(year) da coluna data, em conjunto com a a função de conversão `CAST()` para a tipagem TIMESTAMP que é tipo do parametro da função extract, os operadores lógicos `and` e `or`, a função de string `UPPER()` para padronizar os dados da coluna trecho para realizar a comparação entre strings:
+- Filtragem para pegar somente os acidentes registrados no ano de 2023 e na br 116 nos trechos do estado de São Paulo(SP) ou Rio de Janeiro(RJ)
+  - Utilizando a função de data `EXTRACT()` para extrair somente o ano(year) da coluna data, em conjunto com a a função de conversão `CAST()` para a tipagem TIMESTAMP que é tipo do parametro da função extract;
+  - Operadores lógicos `and` e `or`;
+  - Função de string `UPPER()` para padronizar os dados da coluna trecho para realizar a comparação entre strings;
   ```
       FROM s3object s 
         where EXTRACT(YEAR FROM CAST(data AS TIMESTAMP)) = 2023 

@@ -3,6 +3,7 @@
 ## 1️⃣ Criação da instância EC2 na aws
 
 <img src="Exercicios/instacia-EC2.png" width="80%">
+
 # 🔍 Evidências
 
 # 🏆 Certificados
