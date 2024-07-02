@@ -7,8 +7,8 @@
 
 ## 2️⃣ Análise e tratamento da base de dados em .csv
 
-- Após escolher a base de dados, fiz um estudo dos dados que contém no arquivo utilizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratementos.
-- Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então convertir para a condificação utf-8 utilizando o comando `incov` do linux, como exibido abaixo:
+- Após escolher a base de dados, fiz um estudo dos dados que contém no arquivo utilizando o [dicionário da base escolhida]([/Sprint%203/Desafio/googleplaystore.csv](https://dados.antt.gov.br/dataset/ef0171a8-f0df-4817-a4ed-b4ff94d87194/resource/e419a6ff-6f53-4f70-a7e1-5040a8d3c3ae/download/demostrativo_acidentes_dicionario_dados.pdf)) disponibilizado pela própria organização, para analisar os dados e verificar possíveis tratamentos.
+- Percebi que a codificação estava em latin-1 e alguns dados estavam vindo incorretos por conta disso, então fiz a conversão para a codificação utf-8 utilizando o comando `incov` do linux, como exibido abaixo:
 
 ```
 iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_acidentes_riosp_utf8.csv
