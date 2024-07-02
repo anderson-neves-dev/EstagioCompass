@@ -259,7 +259,7 @@ SUM(CAST(mortos AS DECIMAL)+
 - Filtragem para pegar somente os acidentes registrados no ano de 2023 e na br 116 nos trechos do estado de São Paulo(SP) ou Rio de Janeiro(RJ)
   - Utilizando a função de data `EXTRACT()` para extrair somente o ano(year) da coluna data, em conjunto com a a função de conversão `CAST()` para a tipagem TIMESTAMP que é tipo do parametro da função extract;
   - Operadores lógicos `and` e `or`;
-  - Função de string `UPPER()` para padronizar os dados da coluna trecho(alguns dados estavam em menúculo e outros em maiúsculo) para realizar a comparação entre strings;
+  - Função de string `UPPER()` para padronizar os dados da coluna trecho(alguns dados estavam em minúsculo e outros em maiúsculo) para realizar a comparação entre strings;
   ```
       FROM s3object s 
         where EXTRACT(YEAR FROM CAST(data AS TIMESTAMP)) = 2023 
