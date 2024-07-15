@@ -61,7 +61,7 @@
   )
   ```
 - Etapa para realizar o upload dos arquivos para o bucket S3 utilizando o método `upload_file()` da biblioteca `boto3` em que envio primeiramente como parâmetro o local onde está o meu arquivo, segundamente o nome do meu bucket e por último o caminho que desejo que o arquivo seja armazenado. 
-- Esta etapa está dentro de um bloco try-catch para que, caso ocorra alguma exceção, o erro ocorrido seja exibido.
+- Essa etapa está dentro de um bloco try-catch para que, caso ocorra alguma exceção, o erro ocorrido seja exibido.
   ```
   try:
       #Upload do arquivo de series
