@@ -51,6 +51,10 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 - 💻 **Node.js**
 
 ---
+## Minhas questões para o desafio final:
+- Qual a média de avaliação dos filmes de crime e guerra entre 2012 a 2022 que tiveram atores com mais de 3 títulos conhecidos?
+- Top 5 séries mais bem avaliadas de crime e guerra com tempo entre 20 a 60 minutos com mais de 500 votos
+---
 ## 🧩 Sprints 
 
 1. [Sprint 1](Sprint%201)
@@ -58,3 +62,5 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 3. [Sprint 3](Sprint%203)
 4. [Sprint 4](Sprint4/)
 5. [Sprint 5](sprint5/)
+6. [Sprint 6](sprint6/)
+
