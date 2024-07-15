@@ -167,21 +167,37 @@
     ```
     - Evidencias do resto das etapas sugeridas:
     - Criando imagem:
+  
     <img src="Evidencias/bash-criando-imagem.png" width="80%">
+  
     - Criando os diretórios em bash no container com a imgem criada:
+  
     <img src="Evidencias/bash-criando-diretorios.png" width="80%">
+  
     - Instalando a biblioteca pandas:
+  
     <img src="Evidencias/bash-instalando-pandas.png" width="80%">
+  
     - Zipando os arquivos em bash:
+  
     <img src="Evidencias/bash-zipando-arquivos.png" width="80%">
+  
     <img src="Evidencias/bash-arquivos-zipados-sucesso.png" width="80%">
-    - Copiando os arquivos zipados do container para o diretório local: 
+  
+    - Copiando os arquivos zipados do container para o diretório local:
+   
     <img src="Evidencias/bash-copiando-arquivo-zipado-do-container.png" width="80%">
-    - Bucket s3 com o arquivo zipado armazenado:]
-    <img src="Evidencias/bucket-s3-com-biblioteca-pandas.png" width="80%"> 
+  
+    - Bucket s3 com o arquivo zipado armazenado:
+  
+    <img src="Evidencias/bucket-s3-com-biblioteca-pandas.png" width="80%">
+   
 - Tive alguns erros, a função lamda estava configurada para ter um timeout de busca de apensas 3 segundos e apenas 128 MB de consulta. Então, alterei para no 3 minutos e coloquei ate 256 bytes:
-    <img src="Evidencias/configurando-consulta-lambda.png" width="80%"> 
+  
+    <img src="Evidencias/configurando-consulta-lambda.png" width="80%">
+   
 - Execução da função lambda:
+  
      <img src="Evidencias/lamba-funcao-executada-com-sucesso.png" width="80%"> 
   
 
