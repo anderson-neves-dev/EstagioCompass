@@ -8,7 +8,7 @@
 - Etapa 2: Habilitar hospedagem de site estático
 <img src="Evidencias/personalizando-habilitacao-site-estatico.png" width="80%">
 
-- Etapa 3: editar as configurações do Bloqueio de acesso público
+- Etapa 3: Editar as configurações do Bloqueio de acesso público
 <img src="Evidencias/retirando-bloqueio-de-acesso-publico.png" width="80%">
 
 - Etapa 4: Adicionar política de bucket que torna o conteúdo do bucket publicamente disponível
@@ -16,12 +16,12 @@
 
 - Etapa 5: Configurar um documento de índice
   - Arquivo indice: [index.html](Exercicios/Lab-aws-S3/index.html)
-- Etapa 6: configurar documento de erros
+- Etapa 6: Configurar documento de erros
     - Arquivo indice: [error.html](Exercicios/Lab-aws-S3/error.html)
   - Aquivos index.html e error.html armazenados no bucket s3
   <img src="Evidencias/bucket-com-os-arquivos-html.png" width="80%">
 
-- Etapa 7: testar o endpoint do site
+- Etapa 7: Testar o endpoint do site
   <img src="Evidencias/site-hospedado.png" width="80%">
 ## 2️⃣ Lab AWS Athena
 
@@ -30,7 +30,7 @@
 - Etapa 2: Criar um banco de dados
   <img src="Evidencias/destinatorio-das-consultas-athena-configurado.png" width="80%">
 - Etapa 3: Criar uma tabela
-    -Query para criar o banco de dados:
+    - Query para criar o banco de dados:
     ```
     CREATE EXTERNAL TABLE IF NOT EXISTS meubanco.total_nomes (
         nome STRING,
@@ -53,12 +53,12 @@
   
     <img src="Evidencias/resultado-teste-athena-tabela-total-nomes.png" width="80%">
     
-    - Consulta que lista os 3 nomes mais usados em cada década desde o 1950 até hoje:
+    - Consulta que lista os 3 nomes mais usados em cada década desde 1950 até hoje:
     - Para realizar essa consulta tive que fazer tabelas temporárias para conseguir chegar no resultado esperado
     - A primeira tabela temporária que criei foi a `MeuBancoComColunaDeDecadas`
-      - Nessa tabela adicione todas as colunas que tinham na tabela `total_nomes` no banco de dados `meubanco` e adicionei a coluna decada.
-      - Na coluna decada fiz um calculo para pegar a coluna ano e deicar apenas o ano da decada, ou seja, se o ano é 1952 ficará 1950 na coluna decada. Utilizei a função `FLOR()` para retirar os valores decimais do resultado da conta `ano / 10` em que vai quebrar uma casa decimal do ano `(ex.: 1983 / 10 = 198.3. FLOR(198.3 = 198))` e após a realização da função, multipliquei por 10 para ficar somente a decada `(ex: 198 * 10 = 1983)`;
-      - Por ultimo faço um `WHERE ano >= 1950` para filtrar apenas os anos a partir de 1950.
+      - Nessa tabela adicione todas as colunas que tinham na tabela `total_nomes` no banco de dados `meubanco` e adicionei a coluna década.
+      - Na coluna década fiz um cálculo para pegar a coluna ano e deixar apenas o ano da década, ou seja, se o ano é 1952 ficará 1950 na coluna década. Utilizei a função `FLOR()` para retirar os valores decimais do resultado da conta `ano / 10` em que vai quebrar uma casa decimal do ano `(ex.: 1983 / 10 = 198.3. FLOR(198.3 = 198))` e após a realização da função, multipliquei por 10 para ficar somente a década `(ex: 198 * 10 = 1983)`;
+      - Por último faço um `WHERE ano >= 1950` para filtrar apenas os anos a partir de 1950.
       - Tabela temporária MeuBancoComColunaDeDecadas:
         ```
         WITH MeuBancoComColunaDeDecadas AS (
@@ -74,9 +74,9 @@
     - Após a criação da tabela temporária acima, foi necessário criar mais outra tabela temporária para fazer o ranking dos nomes 
     - `ROW_NUMBER()`: Função de janela para atribuir um número único a cada linha dentro da partição dos resultados.
     - `OVER`: Define a janela de linhas sobre as quais a função de janela opera.
-    - `PARTITION BY decada`: Divide o conjunto de resultados em partições com base no valor da coluna decada. Cada partição corresponde a uma década diferente.
-    - `ORDER BY total DESC`: Dentro de cada partição (década), as linhas são ordenadas em ordem decrescente com base no valor da coluna total. Dessa forma será feito o ranking pelas decadas.
-    - `FROM MeuBancoComColunaDeDecadas` por ultimo, faço tudo isso acima pela tabela temporária MeuBancoComColunaDeDecadas.
+    - `PARTITION BY decada`: Divide o conjunto de resultados em partições com base no valor da coluna década. Cada partição corresponde a uma década diferente.
+    - `ORDER BY total DESC`: Dentro de cada partição (década), as linhas são ordenadas em ordem decrescente com base no valor da coluna total. Dessa forma será feito o ranking pelas décadas.
+    - `FROM MeuBancoComColunaDeDecadas` por último, faço tudo isso acima pela tabela temporária MeuBancoComColunaDeDecadas.
 
     - Tabela temporária RankingDeNomesPorDecada:
 
@@ -93,7 +93,7 @@
         FROM MeuBancoComColunaDeDecadas
     )
     ```
-    - Por ultimo, faço a seleção de nome, sexo, total pegando da tabela temporária RankingDeNomesPorDecada fazendo uma filtragem utilizando WHERE dos números maiores ou iguais a 3 da coluna rankOrdenadoDeNomes ordeno de forma crescente utilizando ORDER BY primeiramente pela coluna decada e depois pela coluna rankOrdenadoDeNomes em que vai me dar em ordem o top 3 total de nomes por decada.
+    - Por último, faço a seleção de nome, sexo, total pegando da tabela temporária RankingDeNomesPorDecada fazendo uma filtragem utilizando WHERE dos números maiores ou iguais a 3 da coluna rankOrdenadoDeNomes ordeno de forma crescente utilizando ORDER BY primeiramente pela coluna década e depois pela coluna rankOrdenadoDeNomes em que vai me dar em ordem o top 3 total de nomes por década.
     ```
     SELECT decada,
         nome,
@@ -145,7 +145,7 @@
 - Etapa 2: Construir o código
     <img src="Evidencias/criando-codigo-no-lamda.png" width="80%">
 - Etapa 3: Criar uma Layer
-    - Tive que realizar modificação: `FROM amazonlinux:latest` para pegar a ultima versão de imagem de base do amazonlinux e `RUN python3 -m pip install --upgrade --ignore-installed pip` em que rodo como o comando python3 e ignorando a instalação do pip.
+    - Tive que realizar modificação: `FROM amazonlinux:latest` para pegar a última versão de imagem de base do amazonlinux e `RUN python3 -m pip install --upgrade --ignore-installed pip` em que rodo com o comando python3 e ignorando a instalação do pip.
     - Código Dockfile:
     ```
     FROM amazonlinux:latest
@@ -157,15 +157,15 @@
     RUN yum -y clean all
     RUN python3 -m pip install --upgrade --ignore-installed pip
     ```
-    - Codigo no terminal par criar a imagem acima
+    - Código no terminal par criar a imagem acima
     ```
     docker build -t amazonlinuxpython39 .
     ```
-    - Codigo no terminal para rodar o container em bash:
+    - Código no terminal para rodar o container em bash:
     ```
     docker run -it amazonlinuxpython39 bash
     ```
-    - Evidencias do resto das etapas sugeridas:
+    - Evidências do resto das etapas sugeridas:
     - Criando imagem:
   
     <img src="Evidencias/bash-criando-imagem.png" width="80%">
@@ -192,7 +192,7 @@
   
     <img src="Evidencias/bucket-s3-com-biblioteca-pandas.png" width="80%">
    
-- Tive alguns erros, a função lamda estava configurada para ter um timeout de busca de apensas 3 segundos e apenas 128 MB de consulta. Então, alterei para no 3 minutos e coloquei ate 256 bytes:
+- Tive alguns erros, a função lambda estava configurada para ter um timeout de busca de apensas 3 segundos e apenas 128 MB de consulta. Então, alterei para 3 minutos e coloquei ate 256 Bytes:
   
     <img src="Evidencias/configurando-consulta-lambda.png" width="80%">
    
