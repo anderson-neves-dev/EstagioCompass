@@ -14,7 +14,12 @@
    -  Details: imdb_id, origin_country e budget.
    -  Credits: actoring e director.
 
-- Para realizar a filtragem dos dados que quero solicitar a 
+- Para realizar a filtragem dos dados que quero solicitar e eliminar dados irrelevantes:
+  - Filmes do genero crime e guerra apenas. 
+  - Media de votos acima de 0.
+  - Contagem de votos acima de 5 (analisei esse padrão nos arquivos CSV).
+  - Orçamento acima de 0.
+  - Espaço de tempo de 01/01/2012 a 31/12/2022.
 ## 2️⃣ Criando função Lambda no console AWS
 - Para automação da extração dos dados da api em arquivos json, criei um função lambda no console da aws com o nome `ingestao-dados-do-tmdb-desafio-final` com tempo de execução em Python 3.9 e na arquitetura x86_64.
 ![](Evidencias/print_criando_funcao_lamda_ingestao-dados-do-tmdb-desafio-final.png)
@@ -75,7 +80,7 @@
 
 - Para permitir que a função Lambda crie diretórios e insira dados JSON no bucket S3 desafio-final-filmes-e-series-anderson-neves, fui ao IAM no console da AWS, selecionei a função Lambda e adicionei a permissão S3:PutObject.
 - Arquivo Json para permitir o acesso:
-    ```
+    ```json
     {
         "Version": "2012-10-17",
         "Statement": [
@@ -97,9 +102,11 @@
 
 ## 6️⃣ Criando código python
 
+- Defini variabeis globais para deixar o código mais maleavel, conseguindo alterar
+
 - Bibliotecas utilizadas
 
-    ```
+    ```python
     import json
     import requests
     import boto3
@@ -107,28 +114,28 @@
     import os
     ```
 - Resgatando a data atual de compilação da função e formtando mês e dia para terem dois dígitos.
-    ```
+    ```python
     request_year = datetime.now().year
     month_requisition = f'{datetime.now().month:02d}'
     day_requisition = f'{datetime.now().day:02d}'
     ```
 - Inicializando o cliente S3 como boto3
-    ```
+    ```python
         s3 = boto3.client('s3')
     ```
 -  Definindo o nome do bucket e caminho que os arquivos json vão ser armazenados.
 
-    ```
+    ```python
     bucket_name = 'desafio-final-filmes-e-series-anderson-neves'
     storage_path_s3 = f'Raw/TMDB/JSON/Movies/{request_year}/{month_requisition}/{day_requisition}/'
     ```
 - Resgatando variável de ambiente (token da api TMDB)
 
-    ```
+    ```python
     access_token_auth = os.environ['ACCESS_TOKEN_AUTH']
     ```
 - Definindo a URL base e os cabeçalhos correspondentes a API TMDB para realizar as requisições
-    ```
+    ```python
     discover_url = "https://api.themoviedb.org/3/discover/movie"
     movie_url = "https://api.themoviedb.org/3/movie/"
     headers = {
@@ -138,30 +145,31 @@
     ```
 - Definindo o intervalo dos filmes que serão consultados por ano.
 
-    ```
+    ```python
     start_year = 2012
     final_year = 2022
     ```
 - Definindo os gêneros dos filmes e seus respectivos IDs no TMDB que serão usados para consulta.
-    ```
+    ```python
     genres_ids = {
         "crime": "80",
         "war": "10752"
     }
     ```
-- Defino os demais parâmetros para requisição solicitando apenas filmes com média acima de 0 e votos acima de cinco (analisei esse padrão nos arquivos CSV).
+- Defino os demais parâmetros para requisição solicitando apenas filmes com média acima de 0 e votos acima de cinco.
 
-    ```
+    ```python
     sort_by = "vote_average.desc"
     vote_average_gte = 0
     vote_count_gte = 5
     ```
 - Variável global para somar o tamanho total dos arquivos em mega bytes.
-    ```
+    ```python
     total_size_of_jsons_mb = 0;
     ```
 - Criei uma função parar remover os campos indesejáveis dos meus arquivos json e dessa forma diminuir o tamanho dos arquivos.
-    ```
+- Função `remove_unwanted_fields`:
+    ```python
     def remove_unwanted_fields(items, fields_to_remove):
         for item in items:
             for field in fields_to_remove:
@@ -171,7 +179,8 @@
 - Criei uma função para salvar os dados resgatados da API TMDB em arquivos JSON com limite de 100 filmes por arquivo e armazená-los no S3 para o caminho desejado.
 - Parâmetros da função, respectivamente: Categoria dos dados, ano de lançamento, os dados da requisição, nome do bucket s3 e o caminho onde os dados serão enviados
 - O padrão em que os arquivos json serão nomeados será: `movie_<genero>_<ano>_part_<x>_<AAAAMMDD>.json`
-    ```
+- Função `save_data`:
+    ```python
     def save_data(genre, year, data, bucket_s3_name, storage_path_s3):
 
         global total_size_of_jsons_mb
@@ -184,7 +193,7 @@
             # Definindo local temporário onde será armazenado o arquivo transformado em json na cache da função lambda
             local_temporary_file_path = f'/tmp/{file_name}'
             
-            # Gravando os primeiros 100 itens do json com adição de uma indetação igual a 4, calculando o tamanho total do arquivo salvo concatenando com o valor total dos arquivos gravados, e excluindo os 100 itens já gravados 
+            # Gravando os primeiros 100 itens do json com adição de uma indetação igual a 4, calculando o tamanho total do arquivo salvo concatenando com o valor total dos arquivos gravados em mega bytes, e excluindo os 100 itens já gravados 
             with open(local_temporary_file_path, 'w') as json_file:
                 json.dump(data[:100], json_file, indent=4)
             total_size_of_jsons_mb += os.path.getsize(local_temporary_file_path) / (1024 * 1024)
@@ -199,25 +208,36 @@
                 print(f'O arquivo {file_name} não foi encontrado.')
     ```
 
-- A função lamda_handle é resposável por realizar as requisições http para API TMDB os loops que estão inseridos dentro de cada na seguinte ordem:
-    1. Loop para realizar as requisições por genero (os quais estão presentes no array genres_ids). Quando esse loop se encerrar será impresso o tamanho total dos arquivos json em mega bytos enviados para o bucket.
-    2. Loop para fazer as requisições pelo intervalo de ano de lançamento proposto (start_year - final_year).
-    3. Loop para realizar requisições em todas as páginas dos parâmetros definidos utilizando o método Discover da api. Quando esse loop se encerrar, o array contendos todos os dados será ordenado de forma decrescente de acordo ao orçamento (budget) através de uma função lambda do python, após isso a função save_data será chamada para organizar os arquivos json e armazená-los no bucket s3.
-    4. Recebendo os dados da api será realizado um loop para percorrer cada item do json, recolhendo o id dos filmes e realizar uma requisição para aquele id no Método Detais para pegar os detalhes como: orçamento, imtb_id e o pais de origem, os quais o método Discover não retorna. Nesse mesmo loop será realizado uma outra requisição com o método Credits para pegar o elenco(cast) de cada filme e a equipe(crew) para porteriomente filtrar apenas os 5 atores principais do filme e os diretores e retirar campos indesejáveis. Após isso será verificado o filme possui um orçamento maior que 0, se possuir será adcionado ao array geral que está armazenando os dados dos filmes por genero e ano separado. 
-- O método `requests.get()` da biblioteca requests, foi utlizado para realizar as requisições, onde utilizo como parametro a url, o cabeçalho e os parametros que quero receber.
-- Função lambda:
+- A função lamda_handle é resposável por realizar as requisições http para API TMDB através de loops que estão organizados um dentro do outro na seguinte ordem.:
+    1. `for genre, genre_id in genres_ids.items()`: 
+       - Loop para realizar as requisições por gênero (os quais estão presentes no array genres_ids). Quando esse loop se encerrar será impresso o tamanho total dos arquivos json em mega bytes enviados para o bucket.
+    2. `for year in range(start_year, final_year + 1)`: 
+        - Loop para fazer as requisições pelo intervalo de ano de lançamento proposto (start_year - final_year).
+        - Dentro do loop, é definido o dicionário `params` em que vão conter os parâmetros para realização da requisição, e bem como, com filtros que quero, os quais foram definidos acima.
+          - Obs.: utilizei os parâmetros `primary_release_date.gte` `primary_release_date.lte` para filtrar o ano que quero, pois o parâmetro `year` da api me retorna dados não correspondentes com o ano informado.
+        - Dentro desse loop é definido um array vazio que armazenará os filmes já filtrados.
+    3. `while continue_pagination`: 
+       - Loop para realizar requisições em todas as páginas dos parâmetros definidos utilizando o método `Discover` da api. 
+       -  Quando esse loop se encerrar, o array contedo todos os dados será ordenado de forma decrescente de acordo ao orçamento (budget) através de uma função lambda do python, 
+       -  Após isso a função save_data será chamada para organizar os arquivos json e armazená-los no bucket s3, em que vão conter um genero em expecífico em um ano específico.
+    4. `for movie in movie_data['results']`: 
+        - Após receber os resultados solicitados na api será realizado um loop para percorrer cada resultado do json (no escopo results), recolhendo o id dos filmes e realizando uma requisição para cada filme, através do seu id, no Método `Details` para pegar os detalhes como: orçamento, imtb_id e o pais de origem, os quais o método Discover não retorna. 
+        - Nesse mesmo loop, será realizado uma outra requisição com o método `Credits` para pegar o elenco(cast) de cada filme e a equipe(crew) para porteriomente filtrar apenas os 5 atores principais do filme e os diretores. E logo após, retirar campos indesejáveis com a função `remove_unwanted_fields()`. 
+        - Ademais, será verificado se o filme possui um orçamento maior que 0, se possuir será adicionado ao array geral que está armazenando os dados dos filmes por gênero e ano separado. 
+- O método `requests.get()` da biblioteca requests, foi utilizado para realizar as requisições, onde utilizo como parâmetro a url, o cabeçalho e os parâmetros da API que quero receber.
+- Função `lambda_handle`:
    
-    ```
+    ```python
     def lambda_handler(event, context):
 
-        # Definindo as variaveis globais
+        # Definindo a variável global
         global total_size_of_jsons_mb;
 
         # Loop para fazer as resquisições por gênero
         for genre, genre_id in genres_ids.items():
             # Loop para fazer as requisições por ano do intervalo de ano proposto
             for year in range(start_year, final_year + 1):
-                # Definindo os parametros com os filtros para realizar a requisição
+                # Definindo os parâmetros com os filtros para realizar a requisição
                 params = {
                     "include_adult": "false",
                     "include_video": "false",
@@ -312,7 +332,7 @@
         print(f'Tamanho total dos arquivos carregados no bucket: {total_size_of_jsons_mb:.2f} MB')
     ```
 - Código completo em: [desafio-final-etapa-2/ingestao-dados-do-tmdb-desafio-final.py](desafio-final-etapa-2/ingestao-dados-do-tmdb-desafio-final.py)
-- Com alguns teste, percebi que a função iria copilar por completo numa média de de 8 a 12 minutos. Então, configurei para que o seu tempo de execução máximo fosse de 15 minutos(o máximo permitido), mas mantive as outras configurações padrões:
+- Com alguns teste, percebi que a função iria copilar por completo numa média de de 8 a 12 minutos. Então, configurei para que o seu tempo de execução máximo fosse de 15 minutos (máximo permitido), mas mantive as outras configurações padrões:
 ![](Evidencias/print_aumentando_tempo_de_execucao_funcao_lambda.png)
 
 ## 7️⃣ Evidência da execução
@@ -344,3 +364,8 @@
   ![](Evidencias/print_cronograma_criado.png)
   ![](Evidencias/print_cronograma_criado_destino.png)
   ![](Evidencias/print_cronograma_politica_de_nova_tentativa.png)
+
+## 9️⃣ Referencias
+
+- [Criação de uma EventBridge regra da Amazon que é executada de acordo com um cronograma](https://docs.aws.amazon.com/pt_br/eventbridge/latest/userguide/eb-create-rule-schedule.html)
+- [Exemplos de políticas baseadas em identidade para o Amazon S3](https://docs.aws.amazon.com/pt_br/AmazonS3/latest/userguide/example-policies-s3.html)
