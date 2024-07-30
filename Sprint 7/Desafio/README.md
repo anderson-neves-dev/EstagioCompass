@@ -36,6 +36,7 @@
     RUN yum -y clean all
     RUN python3 -m pip install --upgrade --ignore-installed pip
     ```
+- [Arquivo Dockfile disponível em: desafio-final-etapa-2/Dockerfile](desafio-final-etapa-2/Dockerfile)
 - Comando para criar a imagem com o nome amazonlinux
   ```
   docker build -t amazonlinuxpython39 .
