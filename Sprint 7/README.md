@@ -1,7 +1,11 @@
 # Aprendizagens 
+
+- Considerei essa sprint uma das que mais somou meus aprendizados no estágio até o momento, visto que aprendi sobre a ferramenta Spark e como ela é útil para criação e manipulação de dataFrames
+
 # 📝 Exercício
 
 ## 1️⃣ Apache Spark - Contador de Palavras
+### Exercicio proposto consiste no uso da imagem all-spark-notebook para contagem das palavras do meu readme.
 - Etapa 1: Baixar a imagem jupyter/all-spark-notebook.
 - Comando:
     ```
@@ -87,14 +91,144 @@
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_1.png)
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_2.png)
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_3.png)
-  
+    ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_4.png)
+- Copiei arquivo esSpark.ipynb de dentro do container spark_jupyter, com o comando:
+  ```
+  docker cp spark_jupyter:/home/jovyan/exSpark.ipynb ./trainee-repo-template/'Sprint 7'/Exercicios/all-spark-notebook/exSpark.ipynb
+  ```
+  ![](Evidencias/print_copiando_arquivo_jupyter_do_container_para_diretorio_da_sprint.png)
+
 - Explicação do código no jupyter bem como os resutados em:  [Exercicios/all-spark-notebook/exSpark.ipynb](Exercicios/all-spark-notebook/exSpark.ipynb)
 
 ## 2️⃣ Lab AWS Glue
 
-- Etapa 1: Configurar Athena
+  ### O execício proposto consiste na construção de um ETL (Extract, Transform and Load) de forma simplificada utilizando os serviços AWS Glue.
+  #### Etapas:
 
-- Etapa 2: Criar um banco de dados
+ 1. Preparando os dados de origem :
+   - Armazenando o arquivo nomes.csv que foi enviado como recurso no bucket s3. Esse arquivo contém os registros de quantidade de cada nome por ano e sexo. 
+  ![](Evidencias/print_exGlue_arquivo_nomes_armazenado_no_bucket_s3.png)
+2. Configurando conta para utilizar aws glue:
+   - Criando usúario IAM com permissão _s3FullAcess_ 
+    ![](Evidencias/print_exGlue_usuario_IAM_criando_com_as_politicas.png)
+3. Criando a IAM Role para os Jobs do AWS Glue
+   ![](Evidencias/print_exGlue_criando_role_glue_part_1.png.png)
+   ![](Evidencias/print_exGlue_criando_role_glue_parte_2.png)
+4. Criando data lake aws-glue
+   ![](Evidencias/print_exGlue_data_base_aws-glue_criado.png)
+   ![](Evidencias/print_exGlue_configurando_data_lake_aws-glue_parte_2.png)
+   ![](Evidencias/print_exGlue_configurando_data_lake_aws-glue_parte_1.png)
+5. Criando um job no aws glue:
+   ![](Evidencias/print_exGlue_criando_um_job_no_glue_parte_1.png)
+   ![](Evidencias/print_exGlue_criando_um_job_no_glue_parte_2.png)
+   ![](Evidencias/print_exGlue_criando_um_job_no_glue_parte_3.png)
+   ![](Evidencias/print_exGlue_adicionando_job_parametros_de_input_e_target.png)
+- Após o job criado e configurado criei o seguinte código em spark para atender as seguintes demandas do execício:
+  ![](Evidencias/print_exGlue_listagem_de_passo_a_passo_a_ser_feita.png)
+- código com os devidos comentários onde resolvi cada etapa solicitada:
+  ```python
+    import sys
+    from awsglue.transforms import *
+    from awsglue.utils import getResolvedOptions
+    from pyspark.context import SparkContext
+    from awsglue.context import GlueContext
+    from awsglue.job import Job
+    from pyspark.sql.functions import col, upper, count, max
 
-# 🏆 Certificados
+    ## @params: [JOB_NAME]
+    args = getResolvedOptions(sys.argv, ['JOB_NAME', 'S3_INPUT_PATH', 'S3_TARGET_PATH'])
+    sc = SparkContext()
+    glueContext = GlueContext(sc)
+    spark = glueContext.spark_session
+    job = Job(glueContext)
+    job.init(args['JOB_NAME'], args)
+
+    source_file = args['S3_INPUT_PATH']
+    target_path = args['S3_TARGET_PATH'] + '/frequencia_registro_nomes_eua'
+
+    # Fazendo a leitura do arquivo csv nomes que está no meu bucket s3 passado na variavel de parametro S3_INPUT_PATH
+    data_frame_com_arquivo_nomes = spark.read.option("header", True).option("sep", ",").csv(source_file)
+
+    # Imprimo somente o schema  para ver as tipagens de cada coluna
+    data_frame_com_arquivo_nomes.printSchema()
+
+    # Convertendo para maiúculo os nomes que estão na coluna nomes
+    data_frame_com_arquivo_nomes = data_frame_com_arquivo_nomes.withColumn("nome", upper(col("nome")))
+
+    # Imprindo a contagem de linhas que o arquivo possui
+    print(f"Total de linhas: {data_frame_com_arquivo_nomes.count()}")
+
+    # Imprimindo a contagem de nomes, agrupando os dados pelas colunas ano e sexo, e ordenando pela coluna ano de forma decrescente para pegar os anos mais recentes
+    contagem_dos_nomes = data_frame_com_arquivo_nomes.groupBy("ano", "sexo").count().orderBy(col("ano").desc())
+    contagem_dos_nomes.show()
+
+    # Ordenando o data frame principal de forma decrescente pela coluna ano 
+    data_frame_com_arquivo_nomes = data_frame_com_arquivo_nomes.orderBy(col("ano").desc())
+
+    # Imprindo o nome feminino com mais registros e o ano que ocorreu
+    nome_feminino_com_mais_registros = data_frame_com_arquivo_nomes.filter(col("sexo") == "F").groupBy("nome", "ano").agg(max("total").alias("max_total")).orderBy(col("max_total").desc()).first()
+    print(f"Nome feminino com mais registros: {nome_feminino_com_mais_registros['nome']} em {nome_feminino_com_mais_registros['ano']}")
+
+    # Imprindo o nome masculino com mais registros e o ano que ocorreu
+    nome_masculino_com_mais_registros = data_frame_com_arquivo_nomes.filter(col("sexo") == "M").groupBy("nome", "ano").agg(max("total").alias("max_total")).orderBy(col("max_total").desc()).first()
+    print(f"Nome masculino com mais registros: {nome_masculino_com_mais_registros['nome']} em {nome_masculino_com_mais_registros['ano']}")
+
+    # Imprimindo o agrupamento do total de registros masculinos e femininos para cada ano
+    total_registros_por_ano = data_frame_com_arquivo_nomes.groupBy("ano").agg(count("nome").alias("total_registros"))
+    total_registros_por_ano.show()
+
+    # Extraindo apenas as 10 primeras linhas ordenadas pelo ano de forma crescente
+    filtragem_primeiras_10_linhas = data_frame_com_arquivo_nomes.orderBy(col("ano").asc()).limit(10)
+    filtragem_primeiras_10_linhas.show()
+
+    # Exportando em formato json os conteúdos do dataframe com o particionamentona ordem sexo e ano para o diretorio target no meu bucket s3 
+    data_frame_com_arquivo_nomes.write.partitionBy("sexo", "ano").json(target_path)
+
+    job.commit()
+  ```
+  - ## Uma das partes que mais tive dificuldade foi a de imprimir o nome feminino e masculino com mais registros. Pois tive fazer um junção das função `filter` `groupBy` `agg` `max` `alias` `desc` e `first`.
+    - `.filter`: Filtrar os dados para incluir apenas os registros do sexo que queria;
+    - `.groupBy`: Agrupar os meus dados por nome e ano;
+    - `agg(max("total").alias("max_total"))`: Calcular o máximo de registros para cada nome e ano, adicionando uma nova coluna ao data frame;
+    - `orderBy`: Para consegui ordenar os dados pela coluna max_total que criei.
+    - `first`: Por fim, pegar apenas a primeira linha que deve ser a que contém o nome que contéma mais registro.
+
+- Evidências de execução:
+  ![](Evidencias/print_exGlue_evidencia_job_execucao.png)
+  - CloudWatch continuous logs:
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_clould_logs_parte_1.png)
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_clould_logs_parte_2.png)
+  - Percebi que não tinha ordenado a coluna para o ano mais recente então refatorei o código e rodei novamente o job (os códigos mostrados acima já estão corrigidos)
+  ![](Evidencias/print_exGlue_evidencia_job_Execucao_correcao_coluna_ordenada_pelo_ano_mais_recente.png)
+  - Diretórios criados no bucket
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_diretorio_criado.png)
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_diretorio_criados_por_sexo_bucket_s3)
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_Diretorios_criados_por_ano_feminino.png)
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_Diretorios_criados_por_ano_masculino.png)
+  - Arquivos json gerados
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_arquivo_json.png)
+  ![](Evidencias/print_exGlue_evidencia_job_execucao_arquivo_json_2.png)
+  
+6. Criando novo crawler:
+   ![](Evidencias/print_exGlue_evidencia_crawler_configuracao_parte_1.png)
+   ![](Evidencias/print_exGlue_evidencia_crawler_configuracao_parte_2.png)
+   ![](Evidencias/print_exGlue_evidencia_crawler_configuracao_parte_3.png)
+   ![](Evidencias/print_exGlue_evidencia_crawler_criado.png)
+- Executando o crawler:
+  ![](Evidencias/print_exGlue_evidencia_clawlers_executado_com_sucesso.png)
+
+7. Testando o banco de dados aws-glue criado com o crawler
+   - Contagem do total de linhas:
+    ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_1.png)
+    - Contagem de nomes agrupados por sexo e por ano, exibindo na ordem dos anos mais recentes:
+    ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_2.png)
+    - Nome feminino e ano com mais registrose:
+    ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_3.png)
+    - Nome masculino e ano com mais registros:
+    ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_4.png)
+    - Total de registros (masculino e feminino) para cada ano ordenado pelo ano de forma crescente:
+    ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_5.png)
+
+    ## Exercício finalizdo com muita aprendizagem adiquirida no processo de criação de ETL.
+
 
