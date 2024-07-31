@@ -59,30 +59,30 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 ---
 ## 🧩 Sprints 
 
-1. [Sprint 1](Sprint%201)  
+- [Sprint 1](Sprint%201)  
    - **Linux para Desenvolvedores**: Curso prático que ensina o uso do terminal Linux e ferramentas essenciais, como Shell e Apache. O curso abrange comandos básicos do terminal, como navegação, criação e renomeação de diretórios e arquivos, e instalação e atualização de pacotes.  
    - **Git e GitHub do básico ao avançado**: Aprenda desde os fundamentos do controle de versão com Git até o uso avançado do GitHub, incluindo Gists e GitHub Pages.  
 
 
-2. [Sprint 2](Sprint%202)  
+- [Sprint 2](Sprint%202)  
    - **SQL para Análise de Dados**: Curso focado em usar SQL para extrair, manipular e analisar dados de bancos de dados.  
    - **AWS Skill Builder - AWS Partner Sales Accreditation (Business) (Portuguese)**   
 
-3. [Sprint 3](Sprint%203)  
+- [Sprint 3](Sprint%203)  
    - **Python 3 - Curso Completo do Básico ao Avançado**  
    - **AWS Partner: Economiza na nuvem AWS**   
    
-4. [Sprint 4](Sprint4/)  
+- [Sprint 4](Sprint4/)  
    - **Programação funcional: O que é? | Alura**  
    - **Docker para Desenvolvedores (com Docker Swarm e Kubernetes)**  
    - **AWS Skill Builder - AWS Partner: Accreditation (Technical) (Portuguese)**  
    - **Estatística Descritiva com Python**  
    
-5. [Sprint 5](Sprint%205/)  
+- [Sprint 5](Sprint%205/)  
    - **AWS Skill Builder - AWS Cloud Wuestt: Cloud Practitioner**   
    - **Curso-padrão de preparação para o exame: AWS Certified Cloud Practitioner (CLF-C02 - Português (Brasil))**     
    
-6. [Sprint 6](sprint6/)  
+- [Sprint 6](sprint6/)  
    - **AWS Skill Builder - Fundamentals of Analytics on AWS - Part 1 (Portuguese)**  
    - **AWS Skill Builder - Fundamentals of Analytics on AWS - Part 2 (Portuguese)**  
    - **AWS Skill Builder - Serveless Analytics (Portuguese)**  
@@ -94,8 +94,8 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
    - **AWS Skill Builder - Amazon QuickSight - Getting Started**  
    - **Desafio: foram praticados os conhecimentos em python e o uso do bucket da aws para hospedagem de dados, bem como também adiquiri mais conheciemtnos com o uso da biblioteca boto3 para o gerenciamento de recursos de bucket s3 na AWS**
 
-7. [Sprint 7](Sprint%207/)
-   - **Formação Spark com Pyspark : o Curso Completo**
-   - **Exercício de spark: Com o execício de spark dessa sprint  aprendi sobre a imagem de docker jupyter/all-spark-notebook, para manipulação de dados com spark e visualização em gráficos com jupyter notebook**
-  - **Exercício Lab AWS Glue: Importante aprendizado adquirido na prática da realização de um processo ETL, criação de data lake,permissões e extração de dados com os serviços aws glue, ETL Jobs, Bucket s3, IAM, Lake Formation e Amazon Athena**
-   - **Desafio: Foram praticados os conhecimento em python para o serviço Aws Lambda para automação de requisiçoes via http e armazenamento em bucket s3, além de configurações de outros serviços como EventBrigde para automatização de execução de funções lambda.** 
+- [Sprint 7](Sprint%207/)
+    - **Formação Spark com Pyspark : o Curso Completo**
+    - **Exercício de spark: Com o execício de spark dessa sprint  aprendi sobre a imagem de docker jupyter/all-spark-notebook, para manipulação de dados com spark e visualização em gráficos com jupyter notebook**
+    - **Exercício Lab AWS Glue: Importante aprendizado adquirido na prática da realização de um processo ETL, criação de data lake,permissões e extração de dados com os serviços aws glue, ETL Jobs, Bucket s3, IAM, Lake Formation e Amazon Athena**
+    - **Desafio: Foram praticados os conhecimento em python para o serviço Aws Lambda para automação de requisiçoes via http e armazenamento em bucket s3, além de configurações de outros serviços como EventBrigde para automatização de execução de funções lambda.** 
