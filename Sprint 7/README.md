@@ -1,6 +1,6 @@
 # Aprendizagens 
 
-- Considerei essa sprint uma das que mais somou meus aprendizados no estágio até o momento, visto além de aprender sobre a ferramenta Spark e como ela é útil para criação e manipulação de dataFrames, também apredi na pŕatica acriação de um processo ETL e com outros conhecimentos adquiridos nas sprints anteriores consegui realizar o desafio proposto dessa sprint.
+- Considerei essa sprint uma das que mais somou meus aprendizados no estágio até o momento, visto além de aprender sobre a ferramenta Spark e como ela é útil para criação e manipulação de dataFrames, também apredi na prática a criação de um processo ETL e com outros conhecimentos adquiridos nas sprints anteriores consegui realizar o desafio proposto dessa sprint.
 
 # 📝 Exercícios
 
