@@ -1,8 +1,8 @@
 # Aprendizagens 
 
-- Considerei essa sprint uma das que mais somou meus aprendizados no estágio até o momento, visto que aprendi sobre a ferramenta Spark e como ela é útil para criação e manipulação de dataFrames
+- Considerei essa sprint uma das que mais somou meus aprendizados no estágio até o momento, visto além de aprender sobre a ferramenta Spark e como ela é útil para criação e manipulação de dataFrames, também apredi na pŕatica acriação de um processo ETL e com outros conhecimentos adquiridos nas sprints anteriores consegui realizar o desafio proposto dessa sprint.
 
-# 📝 Exercício
+# 📝 Exercícios
 
 ## 1️⃣ Apache Spark - Contador de Palavras
 ### Exercicio proposto consiste no uso da imagem all-spark-notebook para contagem das palavras do meu readme.
@@ -87,7 +87,7 @@
 - Evidências de execução dos comando acima
     ![](Evidencias/print_exSpark_terminal_spark.png)
     ![](Evidencias/print_exSpark_terminal_spark_parte_2.png)
-- Etapa 6: Resgatar os dados Parket no jupyter e criar um gráfico com matploplib
+- Etapa 6: Resgatar os dados Parket no jupyter e criar um gráfico com matplotlib
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_1.png)
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_2.png)
     ![](Evidencias/print_exSpark_trabalhando_com_os_dados_parket_no_Jupyter_part_3.png)
@@ -102,7 +102,7 @@
 
 ## 2️⃣ Lab AWS Glue
 
-  ### O execício proposto consiste na construção de um ETL (Extract, Transform and Load) de forma simplificada utilizando os serviços AWS Glue.
+  ### O exercício proposto consiste na construção de um ETL (Extract, Transform and Load) de forma simplificada utilizando os serviços AWS Glue.
   #### Etapas:
 
  1. Preparando os dados de origem :
@@ -123,7 +123,7 @@
    ![](Evidencias/print_exGlue_criando_um_job_no_glue_parte_2.png)
    ![](Evidencias/print_exGlue_criando_um_job_no_glue_parte_3.png)
    ![](Evidencias/print_exGlue_adicionando_job_parametros_de_input_e_target.png)
-- Após o job criado e configurado criei o seguinte código em spark para atender as seguintes demandas do execício:
+- Após o job criado e configurado criei o seguinte código em spark para atender as seguintes demandas do exercício:
   ![](Evidencias/print_exGlue_listagem_de_passo_a_passo_a_ser_feita.png)
 - código com os devidos comentários onde resolvi cada etapa solicitada:
   ```python
@@ -187,12 +187,14 @@
     job.commit()
   ```
   - Código completo disponivel em: ![Exercicios/aws-glue/job_aws_glue_lab_4.py](Exercicios/aws-glue/job_aws_glue_lab_4.py)
-  - ## Uma das partes que mais tive dificuldade foi a de imprimir o nome feminino e masculino com mais registros. Pois tive fazer um junção das função `filter` `groupBy` `agg` `max` `alias` `desc` e `first`.
+  - Evidência do código na aws:
+  ![](Evidencias/print_exGlue_script_job_aws_glue_lab_4.png)
+  - ## Uma das partes que mais tive dificuldade foi a de imprimir o nome feminino e masculino com mais registros. Pois tive fazer um junção das funções: `filter` `groupBy` `agg` `max` `alias` `desc` e `first`.
     - `.filter`: Filtrar os dados para incluir apenas os registros do sexo que queria;
     - `.groupBy`: Agrupar os meus dados por nome e ano;
     - `agg(max("total").alias("max_total"))`: Calcular o máximo de registros para cada nome e ano, adicionando uma nova coluna ao data frame;
-    - `orderBy`: Para consegui ordenar os dados pela coluna max_total que criei.
-    - `first`: Por fim, pegar apenas a primeira linha que deve ser a que contém o nome que contéma mais registro.
+    - `orderBy`: Para conseguir ordenar os dados pela coluna max_total que criei.
+    - `first`: Por fim, pegar apenas a primeira linha que deve ser a que contém o nome que contém mais registros.
 
 - Evidências de execução:
   ![](Evidencias/print_exGlue_evidencia_job_execucao.png)
@@ -223,13 +225,13 @@
     ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_1.png)
     - Contagem de nomes agrupados por sexo e por ano, exibindo na ordem dos anos mais recentes:
     ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_2.png)
-    - Nome feminino e ano com mais registrose:
+    - Nome feminino e ano com mais registros:
     ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_3.png)
     - Nome masculino e ano com mais registros:
     ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_4.png)
     - Total de registros (masculino e feminino) para cada ano ordenado pelo ano de forma crescente:
     ![](Evidencias/print_exGlue_evidencia_athena_realizando_consulta_no_banco_aws-glue_parte_5.png)
 
-    ## Exercício finalizdo com muita aprendizagem adiquirida no processo de criação de ETL.
+    ## Exercício finalizado com muita aprendizagem adquirida na prática do processo de criação de um ETL com os serviços da aws.
 
 
