@@ -186,6 +186,7 @@
 
     job.commit()
   ```
+  - Código completo disponivel em: ![Exercicios/aws-glue/job_aws_glue_lab_4.py](Exercicios/aws-glue/job_aws_glue_lab_4.py)
   - ## Uma das partes que mais tive dificuldade foi a de imprimir o nome feminino e masculino com mais registros. Pois tive fazer um junção das função `filter` `groupBy` `agg` `max` `alias` `desc` e `first`.
     - `.filter`: Filtrar os dados para incluir apenas os registros do sexo que queria;
     - `.groupBy`: Agrupar os meus dados por nome e ano;
