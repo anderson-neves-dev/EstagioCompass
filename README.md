@@ -82,12 +82,12 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
    - **Docker para Desenvolvedores (com Docker Swarm e Kubernetes)**  
    - **AWS Skill Builder - AWS Partner: Accreditation (Technical) (Portuguese)**  
    - **Estatística Descritiva com Python**
-   - **Desafio: Prática conceitos teóricos apredidos no curso de Docker, criando imagens e containers.**
+   - **Desafio: Prática de conceitos teóricos apredidos no curso de Docker, criando imagens e containers.**
    
 - [Sprint 5](Sprint%205/)  
    - **AWS Skill Builder - AWS Cloud Wuestt: Cloud Practitioner**   
    - **Curso-padrão de preparação para o exame: AWS Certified Cloud Practitioner (CLF-C02 - Português (Brasil))**
-   - **Desafio: Aprendizado na prática com manipulação e extração de dados em bucket s3 com as ferramentas boto3 e o uso do S3 Select da aws.** para criar automação em python capaz de extrair dados em nuvem.      
+   - **Desafio: Aprendizado na prática com manipulação e extração de dados em bucket s3 com as ferramentas boto3 e o uso do S3 Select da aws para automação em python capaz de extrair dados em nuvem.**
    
 - [Sprint 6](sprint6/)
 - **Aprendizados com foco em serviços da aws**
@@ -99,7 +99,8 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
    - **AWS Skill Builder - Amazon EMR Getting Started.**  
    - **AWS Skill Builder - Getting Started with Amazon Redshift.**    
    - **AWS Skill Builder - Best Practices for Data Warehousing with Amazon Redshift (Portuguese).**  
-   - **AWS Skill Builder - Amazon QuickSight - Getting Started.**  
+   - **AWS Skill Builder - Amazon QuickSight - Getting Started.**
+   - **Exercícios: Apredizagem em criação de camadas em funções lamda e prática em laboratórios aws com o serviço Athena**
    - **Desafio: foram praticados os conhecimentos em python e o uso do bucket da aws para hospedagem de dados, bem como adiquiri mais conhecimentos com o uso da biblioteca boto3 para o gerenciamento de recursos de bucket s3 na AWS.**
 
 - [Sprint 7](Sprint%207/)
