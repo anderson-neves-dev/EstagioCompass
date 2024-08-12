@@ -1,5 +1,5 @@
 # Sobre o desafio
-- O desafio dessa sprint consiste na terceira etapa do desafio final que é o processamento da Camada Trusted, a qual deve conter dados limpos e confiáveis que é um resultado dos tratamento dos dados contidos na Raw Zone.
+- O desafio dessa sprint consiste na terceira etapa do desafio final que é o processamento da Camada Trusted, a qual deve conter dados limpos e confiáveis que é um resultado do tratamento dos dados contidos na Raw Zone.
     
 # Tema Desafio final
 
@@ -49,6 +49,7 @@
 ![](Evidencias/print_job_configuracao_part_1.png)
 ![](Evidencias/print_job_configuracao_part_2.png)
 - Nos parametros, adicionei `S3_INPUT_PATH` com o caminho da raw zone onde estão os meus arquivos json, que estão no caminho `s3://desafio-final-filmes-e-series-anderson-neves/Raw/TMDB/JSON/Movies/`
+  ![](Evidencias/print_arquivos_json_no_bucket.png)
 - Adicionei também aos parametros `S3_TARGET_PATH` o caminho alvo onde vou exportar os meus arquivos formatados em tipos parquet, que vão ficar na camada Trusted: `s3://desafio-final-filmes-e-series-anderson-neves/Trusted/TMDB`
 ![](Evidencias/print_parametros_job_json.png)
 - Após configurar o job, criei o scripit em spark para modelar os meus dados
@@ -61,7 +62,7 @@
     from pyspark.context import SparkContext
     from awsglue.context import GlueContext
     from awsglue.job import Job
-    from pyspark.sql.functions import col, concat_ws, round, year, trim, format_number
+    from pyspark.sql.functions import col, concat_ws, round, year, trim
     from pyspark.sql.types import DoubleType, IntegerType, DecimalType
     ```
 - Extrai os parametros que vou trabalhar e inicializei todas os contextos de trabalho com spark e o glue (configurações padrões).
@@ -151,6 +152,7 @@
 
     job.commit()
     ```
+- ***Código completo em: [Codigos/job_desafio_final_tmdb.py](Codigos/job_desafio_final_tmdb.py)***
 - Evidencias do script:
 ![](Evidencias/print_job_json_script_parte_1.png)
 ![](Evidencias/print_job_json_script_parte_2.png)
@@ -170,6 +172,7 @@
 ![](Evidencias/print_configuracoes_job_csv.png)
 - Como parametros, passei os seguintes:
   - `S3_INPUT_PATH` referenciando o arquivo cvs de filmes no caminho `s3://desafio-final-filmes-e-series-anderson-neves/Raw/File/CSV/Movies/2024/7/18/`
+    ![](Evidencias/print_arquivo_csv_no_bucket.png)
   - `S3_REFERENCE_DF_PATH` refrenciando o arquivo parquet salvo no último job no caminho: `s3://desafio-final-filmes-e-series-anderson-neves/Trusted/TMDB/`
   - `S3_TARGET_PATH` referencia o destino que será exportado o data frame do job na camada trusted: `s3://desafio-final-filmes-e-series-anderson-neves/Trusted/CSV`
   - Evidência:
@@ -256,6 +259,7 @@
 
     job.commit()
     ```
+- ***Código completo em: [Codigos/job_desafio_final_csv.py](Codigos/job_desafio_final_csv.py)***
 - Evidência de execução do job:
 ![](Evidencias/print_evidencia_execucao_job_csv_details.png)
 - Evidências output log no CloudWatch:
@@ -330,10 +334,10 @@ select * from csv;
     ```
     ![](Evidencias/print_evidencia_athena_soma_da_coluna_orcamento.png)
 
+- ***Todas as consultas em sql: [Codigos/consultas.sql](Codigos/consultas.sql)***
 
-## 8️⃣ Criando cronograma
+### Após analisar os dados da camada Trusted e ver que estão padronizados e são confiáveis, os dados estão prontos para ir para próxima etapa do desafio final.
 
-## 9️⃣ Referências
+## Referências
 
-- [Criação de uma EventBridge regra da Amazon que é executada de acordo com um cronograma](https://docs.aws.amazon.com/pt_br/eventbridge/latest/userguide/eb-create-rule-schedule.html)
-- [Exemplos de políticas baseadas em identidade para o Amazon S3](https://docs.aws.amazon.com/pt_br/AmazonS3/latest/userguide/example-policies-s3.html)
+- [Documentação de funções Spark Sql](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/functions.html)
