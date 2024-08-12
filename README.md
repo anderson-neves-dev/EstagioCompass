@@ -77,7 +77,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
    - **AWS Partner: Economiza na nuvem AWS**.   
    - **Desafio: Aprendizado em modelagem de arquivo CSV com python e geração de relatórios com as bibliotecas pandas, matplotlib e a ferramenta jupyter Notebook.**
      
-- [Sprint 4](Sprint4/)  
+- [Sprint 4](Sprint%204/)  
    - **Programação funcional: O que é? | Alura**  
    - **Docker para Desenvolvedores (com Docker Swarm e Kubernetes)**  
    - **AWS Skill Builder - AWS Partner: Accreditation (Technical) (Portuguese)**  
@@ -89,7 +89,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
    - **Curso-padrão de preparação para o exame: AWS Certified Cloud Practitioner (CLF-C02 - Português (Brasil))**
    - **Desafio: Aprendizado na prática com manipulação e extração de dados em bucket s3 com as ferramentas boto3 e o uso do S3 Select da aws para automação em python capaz de extrair dados em nuvem.**
    
-- [Sprint 6](sprint6/)
+- [Sprint 6](Sprint%206/)
 - **Aprendizados com foco em serviços da aws**
    - **AWS Skill Builder - Fundamentals of Analytics on AWS - Part 1 (Portuguese).**  
    - **AWS Skill Builder - Fundamentals of Analytics on AWS - Part 2 (Portuguese).**  

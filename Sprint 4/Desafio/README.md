@@ -2,7 +2,7 @@
 
 ## 1️⃣ Arquivo `Dockfile` para executar o código `carguru.py`
 
-- Primeiramente, foi salvo o código [carguru.py](/Sprint4/Desafio/Etapa-1/app/carguru.py) dentro do diretório app.
+- Primeiramente, foi salvo o código [carguru.py](Etapa-1/app/carguru.py) dentro do diretório app.
 - Após isso, foi criado o arquivo `Dockfile` abaixo para gerar uma imagem, em que utilizei como base a imagem python3.
 ```
 FROM python:3
@@ -24,7 +24,7 @@ docker run -it --name container-carguru carguru
 ```
 docker start -i <nome ou id do container>
 ```
-## 🐋 [Programa completo etapa 1 e 2](/Sprint4/Desafio/Etapa-1/)
+## 🐋 [Programa completo etapa 1 e 2](Etapa-1/)
 ## 3️⃣ Criação de script capaz de receber strings via input, gerar o hash da string por meio do algoritmo `SHA-1` e imprimir na tela com o método `hexdigest()`.
 - Script de mascaramento:
     ```
@@ -76,4 +76,4 @@ docker start -i <nome ou id do container>
   ```
   docker run -it --name container-mascaramento mascarar-dados
   ```
-## 🐋 [Programa completo etapa 3](/Sprint4/Desafio/Etapa-3/)
+## 🐋 [Programa completo etapa 3](Etapa-3/)

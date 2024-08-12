@@ -15,17 +15,17 @@ iconv -f ISO-8859-1 -t UTF-8 demostrativo_acidentes_riosp.csv > demostrativo_aci
 ```
 - Analisei também que o formato de data não estava no padrão correspondente ao tipo TIMESTAMP do s3 select, então fiz o tratamento da coluna de data utilizando o LibreOfficeCalc de DD/MM/AAAA para AAAA-MM-DD, como mostrado abaixo:
   <div style="text-align: center; padding: 10px;">
-    <img src="/sprint5/Desafio/Evidencias/coluna-data-nao-formatada.png" width="100%" style="padding: 10px;">
+    <img src="Evidencias/coluna-data-nao-formatada.png" width="100%" style="padding: 10px;">
   </div>
   <div style="text-align: center; padding: 10px;">
-    <img src="/sprint5/Desafio/Evidencias/coluna-data-formatada.png" width="100%" style="padding: 10px;">
+    <img src="Evidencias/coluna-data-formatada.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 3️⃣ Criação do bucket S3 na AWS e armazenamento da base de dados
 
 - Após o tratamento dos dados, criei um bucket S3 com o nome `basededadossprint5` na AWS e armazenei a base de dados no bucket
   <div style="text-align: center; padding: 10px;">
-    <img src="/sprint5/Desafio/Evidencias/buckets3.png" width="100%" style="padding: 10px;">
+    <img src="Evidencias/buckets3.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 4️⃣ Configuração de acesso ao bucket s3
@@ -36,7 +36,7 @@ sudo apt install awscli
 ```
 - Com a cli da AWS instalada configurei com as minhas chaves de acesso do usuário raiz utilizando `aws configure` e colando o token no terminal. Para verificar se estava conectado, rodei o comando `aws s3 ls` para listar os meus buckets.
   <div style="text-align: center; padding: 10px;">
-    <img src="/sprint5/Desafio/Evidencias/listagemBucketsAwsCli.png" width="100%" style="padding: 10px;">
+    <img src="Evidencias/listagemBucketsAwsCli.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 5️⃣ Consulta proposta
@@ -272,7 +272,7 @@ SUM(CAST(mortos AS DECIMAL)+
 
 - Resultado no terminal:
   <div style="text-align: center; padding: 10px;">
-    <img src="/sprint5/Desafio/Evidencias/codigoCompilado.png" width="100%" style="padding: 10px;">
+    <img src="Evidencias/codigoCompilado.png" width="100%" style="padding: 10px;">
   </div>
 
 ## 9️⃣ Referências 
