@@ -122,7 +122,7 @@
 - Lendo o arquivo txt nomes_aleatorios.txt gerados no último exercício e carregando para dentro de um dataframe. Após isso, exibir as 5 primeiras linhas do dataframe.
     ```python
     # Lendo o arquivo txt e transformando em um dataFrame
-    df_nomes = spark.read.csv("/home/two/Documentos/estagio/Exercicios/Geracao-em-massa-de-dados/Etapa-3/nomes_aleatorios.txt")
+    df_nomes = spark.read.csv("nomes_aleatorios.txt")
     print("\n\n\n\n\n Primeiras 5 linhas do data frame")
     df_nomes.show(5)
     ```
