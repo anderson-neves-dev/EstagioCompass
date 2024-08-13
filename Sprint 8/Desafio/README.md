@@ -285,7 +285,7 @@
     job.commit()
     ```
 - ***Código completo em: [Codigos/job_desafio_final_csv.py](Codigos/job_desafio_final_csv.py)***
-- Eviencia do script job:
+- Evidência do script job:
   ![](Evidencias/print_job_csv_script.png)
 - Evidência de execução do job:
 ![](Evidencias/print_evidencia_execucao_job_csv_details.png)
