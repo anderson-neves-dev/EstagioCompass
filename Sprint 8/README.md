@@ -278,5 +278,5 @@
     ![](Evidencias/print_Ex_Apache_Spark_evidencia_terminal_parte_5.png)
 
 
- ## Exercícios finalizados com muita aprendizado adquirido na prática de manipulação de dataframes com Apache Spark.
+ ## Exercícios finalizados com muito aprendizado adquirido na prática de manipulação de dataframes com Apache Spark.
 
