@@ -4,6 +4,7 @@
 ## 🏆 Tema Desafio final
 
 #### Como tema do desafio final, escolhi analisar os filmes dos gêneros crime e guerra lançados entre 2012 e 2022. O foco da análise é entender a relação entre a média de avaliação, popularidade e orçamento, a avaliação de filmes com atores conhecidos e as tendências de orçamento e popularidade.
+#### Busco responder as seguintes questões: 
 - Qual é a média de avaliação e a média de popularidade dos 10 filmes com os maiores orçamentos lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime? Os filmes de guerra e crime analisados têm uma aceitação geral positiva de acordo com a média de popularidade para seus respectivos gêneros?  
 - Qual a média de avaliação dos filmes lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime que tiveram atores com mais de 3 títulos mais conhecidos?
 - A média dos orçamentos para filmes dos gêneros 'guerra' e 'crime' aumentou de 2012 a 2022? E a média de popularidade desses filmes seguiu uma tendência similar durante o mesmo período?
@@ -67,7 +68,7 @@
   - AWSGlueConsoleFullAcess;
   - AWSLakeFormationAdmin;
   - CloudWatchFullAcess.
-[](Evidencias/print_IAM_role.png)
+![](Evidencias/print_IAM_role.png)
 
 - Logo após, criei o job com as seguintes configurações:
 ![](Evidencias/print_job_configuracao_part_1.png)
@@ -108,11 +109,11 @@
     target_path = f"{args['S3_TARGET_PATH']}/{current_date}/"
   ```
 
-- Realizando a leitura e transformando meus dados json em data frame, tive que utulizar a opção multline pois meus dados no json continham múltiplas linhas.
+- Realizando a leitura e transformando meus dados json em data frame, tive que utilizar a opção multline pois meus dados no json continham múltiplas linhas.
   ```python
   df_movies = spark.read.option('multiline', 'true').json(source_file)
   ```
-- Imprimo o schema do dataFrame antes da formatação.
+- Imprimo o esquema do dataFrame antes da formatação.
   ```python
     df_movies.printSchema()
   ```
@@ -236,7 +237,7 @@
 
   df_movies_csv = df_movies_csv.drop("anoNascimento", "anoFalecimento")
   ```
-- Realizo a leitura dos arquivos parquets transformando em dataFrame e imprimo a quantidade de linhas, schema e as primeiras linhas.
+- Realizo a leitura dos arquivos parquets transformando em dataFrame e imprimo a quantidade de linhas, esquema e as primeiras linhas.
     ```python
     data_frame_refence = spark.read.parquet(df_path_to_filter_reference)
     print(f"quantidade de linhas: {data_frame_refence.count()}")
@@ -252,8 +253,8 @@
      -  Por exemplo, o filme Dose dupla não é considerado filme de crime no IMDB e no TMDB ele é
      ![](Evidencias/print_filme_dose_dupla_imdb.png)
      ![](Evidencias/print_filme_dose_dupla_tmdb.png)
-  - Outro motivo e o principal, é que os filmes provindos do json tem os dados que quero para minha análise (orçamento e popularidade) e no csv não tenho essas informações e dessa forma consigo filtrar somente os dados relevantes para a minha análise.
-  - Realizei essa junção através do método `.join` passando como parâmetro os ids dos filmes do dataFrame com dados provindos do TMDB, referenciando a junção pela coluna id do dataFRame do csv e a junção será da forma inner, ou seja, apenas os ids em comum.
+  - Outro motivo e o principal, é que os filmes provindos do json tem os dados que quero para minha análise (orçamento e popularidade) e no csv não tenho essas informações. Dessa forma, consigo filtrar somente os dados relevantes para a minha análise.
+- Realizei essa junção através do método `.join` passando como parâmetro os ids dos filmes do dataFrame com dados provindos do TMDB, referenciando a junção pela coluna id do dataFRame do csv e a junção será da forma inner, ou seja, apenas os ids em comum.
     ```python
     df_filtered_movies_csv = df_movies_csv.join(ids_IMDB_parquet, on="id", how="inner")
     ```
@@ -298,7 +299,7 @@
 ![](Evidencias/print_evidencia_camada_trusted_particao_csv.png)
 ![](Evidencias/print_evidencia_camada_trusted_particao_TMDB.png)
 
-## 5️⃣ Criação do data base
+### 5️⃣ Criação do data base
 - Após a limpeza e padronização dos meus dados, criei um database nos serviços da AWS glue
 ![](Evidencias/print_DataBase_criado.png)
 
@@ -312,7 +313,7 @@
 
 - Após a criação do crawler, foi executado o crawler criação das tabelas.
 - Evidências de execução do crawler:
-![](Evidencias/print_configuracoes_crawler.png)
+![](Evidencias/print_evidencia_execucao_crawler.png)
 - Com a execução do crawler foram criadas duas tabelas CSV e TMDB com as partições de data de processamento dos dados.
 ![](Evidencias/print_evidencia_execucao_crawler_parte_2.png)
 - Evidência das tabelas criadas no data base:
@@ -322,14 +323,16 @@
 - Primeiramente, tive que selecionar o banco de dados desafio-final-filmes e carregar as partições da tabela TMDB.
 ![](Evidencias/print_evidencia_athena_carregando_particoes.png)
 - Consultando todos os dados da tabela TMDB
-```
+```sql
 select * from tmdb;
 ```
+- Como resultado, obteve um total de 860 linhas, com a mesma quantidade do dataframe importado.
 ![](Evidencias/print_evidencia_athena_consultando_todos_os_dados_tmdb.png)
 - Exibindo todos os dados da tabela CSV
-```
+```sql
 select * from csv;
 ```
+- Como resultado, obteve um total de 3378 linhas, com a mesma quantidade do dataframe importado.
 ![](Evidencias/print_evidencia_athena_consultando_todos_os_dados_csv.png)
 - Consultando se há dados duplicados no tmdb
     ```sql
