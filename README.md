@@ -50,6 +50,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 - 🗄️ **SQL**
 - 🐋 **Docker**
 - 🗄️ **Serviços AWS**
+- 🐍 **Apache Spark**
   
 
 ---
@@ -108,3 +109,9 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
     - **Exercício de spark: Com o execício de spark dessa sprint  aprendi sobre a imagem de docker jupyter/all-spark-notebook, para manipulação de dados com spark e visualização em gráficos com jupyter notebook**
     - **Exercício Lab AWS Glue: Importante aprendizado adquirido na prática da realização de um processo ETL, criação de data lake,permissões e extração de dados com os serviços aws glue, ETL Jobs, Bucket s3, IAM, Lake Formation e Amazon Athena**
     - **Desafio: Foram praticados os conhecimento em python para o serviço Aws Lambda para automação de requisiçoes via http e armazenamento em bucket s3, além de configurações de outros serviços como EventBrigde para automatização de execução de funções lambda.** 
+- [Sprint 8](Sprint%208/)
+  - **Curso realizado: Tutoriais Técnicos - Analytics - Português.**
+    - Apredizagem no processo ETL com os serviços da AWS Glue desde a padronização e catalogação dos dados até a parte de gerar insights com o Quicksight.
+  - **Com os exercícios de Geração em massa de dados pratiquei operações de gerar valores aleatórios, manipulação de listas com python e armazenamento de listas em arquivos csv e txt.**
+  - **No Exercício de Apache Spark pratiquei a aplicação de recusos para manipulação de dataframe e consulta com SQL utilizando funções pyspark sql e também consultas em dataframes em SQL utilizando spark.sql com o framework Apache Spark.**
+  - **Desafio: Praticado o processamento da camada trusted, serviços da AWS Glue como: ETL Jobs, Crawler e Athena além da prática com novas apredizagens da ferramenta Spark.**

@@ -32,8 +32,32 @@
     - Atores e diretores do json (Utilizarei apenas os dados de atores contidos no csv, mais precisamente da coluna `títulos mais conhecidos`).
     - Linguagem original. 
     - Mês e dia de lançamento.
-- Por fim, para a minha análise quero apenas os dados de:
-  - 
+- Por fim, para a minha análise será necessário apenas os dados:
+  - **CSV**:
+    - id;
+    - Titulo principal;
+    - Titulo Original;
+    - Ano lançamento;
+    - Tempo minutos;
+    - Gênero;
+    - Nota media;
+    - Numero de votos;
+    - Genero Artista;
+    - Personagem;
+    - Nome do artista;
+    - Profissão;
+    - Titulos do artista mais conhecidos.
+  - **TMDB**:
+    - Id;
+    - Titulo;
+    - Orçamento;
+    - Popularidade;
+    - Nota media;
+    - Numero de votos;
+    - Poster link;
+    - Pais de origem;
+    - Gênero;
+    - Ano de Lançamento.
 
 ### 2️⃣ Criar o job para processamento dos arquivos json
 
