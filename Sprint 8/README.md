@@ -20,7 +20,6 @@
 - **Código completo em:** [Exercicios/Geracao-em-massa-de-dados/Etapa-1/index.py](Exercicios/Geracao-em-massa-de-dados/Etapa-1/index.py)
 - Evidência de execução:
 ![](Evidencias/print_Ex_Geracao_em_massa_de_dados_evidencia_execucao_etapa-1.png)
-- Etapa 1: Baixar a imagem jupyter/all-spark-notebook.
   
 ### Exercício 3.2
 - Nesse exercício foi proposto que fizesse um código em python que declarasse e inicializa-se uma lista contendo o nome de 20 animais, ordena-se essa linha em ordem crescente e itere sobre os itens imprimindo um a um e na sequência gravar a lista em um aquivo no formato CSV.
