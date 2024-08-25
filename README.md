@@ -55,10 +55,15 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 
 ---
 ## 🏆 Tema do desafio final
-#### Como tema do desafio final, escolhi analisar filmes dos gêneros crime e guerra lançados entre 2012 e 2022. O foco da análise é entender a relação entre a média de avaliação e popularidade, a avaliação de filmes com atores conhecidos e as tendências de orçamento e popularidade.
-- Qual é a média de avaliação e a média de popularidade dos 10 filmes com os maiores orçamentos lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime? Os filmes de guerra e crime analisados têm uma aceitação geral positiva de acordo com a média de popularidade para seus respectivos gêneros?  
-- Qual a média de avaliação dos filmes lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime que tiveram atores com mais de 3 títulos mais conhecidos?
-- A média dos orçamentos para filmes dos gêneros 'guerra' e 'crime' aumentou de 2012 a 2022? E a média de popularidade desses filmes seguiu uma tendência similar durante o mesmo período?
+### Como tema do desafio final, escolhi analisar os filmes dos gêneros crime e guerra lançados entre 2012 e 2022. O foco da análise é entender a relação entre a média de avaliação, popularidade e orçamento, os generos que mais combinam e as tendências de orçamento e popularidade.
+- Busco responder as seguintes questões:
+  - Qual é a média de avaliação e a média de popularidade dos 10 filmes com os maiores orçamentos lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime? Os filmes de guerra e crime analisados têm uma aceitação geral positiva de acordo com a média de popularidade para seus respectivos gêneros?
+  
+  - Quais os gêneros que mais "combinam" com os gêneros de crime e guerra?
+  
+  - Quais os paises que mais produziram filmes desses generos diante esse intervalo de tempo?
+  
+  - A média dos orçamentos para filmes dos gêneros 'guerra' e 'crime' aumentou de 2012 a 2022? E a média de popularidade desses filmes seguiu uma tendência similar durante o mesmo período?
 ---
 ## 🧩 Sprints 
 
