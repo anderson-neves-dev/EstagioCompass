@@ -31,7 +31,7 @@
 
 - Após analisar os dados na camada trusted e relacionar como eles iriam responder as minhas questões, criei o seguinte modelo dimensional:
 ![](Evidencias/modelo_dimensional.jpeg)
-- Então, vou estar criando as seguintes tabelas com os atributos:
+- Então, vou estar criando as tabelas com os seguintes atributos:
   - Dimensão filme:
     - id_filme;
     - Título principal;
@@ -132,7 +132,7 @@
     ```python
     df_pais = df_pais.withColumn("id_pais", monotonically_increasing_id())
     ```
-- Transformei a coluna 'paisOrigem' em múltiplas linhas, uma para cada pais no data frame com os dados tmdb, adicionando esses dados em um novo dataframe geral chamando df_filme que vou utilizar para juntar todos os dados ao decorrer da transformação dos dados.
+- Transformei a coluna 'paisOrigem' em múltiplas linhas, uma para cada pais no dataframe com os dados tmdb, adicionando esses dados em um novo dataframe geral chamando df_filme que vou utilizar para juntar todos os dados ao decorrer da transformação dos dados.
     ```python
     df_filme = df_tmdb.withColumn("paisOrigem", explode(split(col("paisOrigem"), ",")))
     ```
@@ -140,11 +140,11 @@
     ```python
     df_filme = df_filme.join(df_pais, on="paisOrigem", how="inner")
     ```
-- Renomenado a coluna paisOrigem
+- Renomeando a coluna paisOrigem:
     ```python
     df_pais = df_pais.withColumnRenamed("paisOrigem", "pais")
     ```
-- A próxima etapa do script foi criar um dataframe para armazenar as informações sobre os gêneros, que incluem o nome e o ID. A coluna de gêneros resgatada da API TMDB na etapa de ingestão de dados contém apenas os [IDs dos gêneros](Evidencias/print_dados_pais_e_genero_agrupados_como_lista.png). Esses dados foram extraídos diretamente da documentação da API TMDB. Como esses valores são fixos e há apenas 19 itens, para padronizar, decidi traduzi-los para o português.
+- A próxima etapa do script foi criar um dataframe para armazenar as informações sobre os gêneros, que incluem o nome e o ID. A coluna de gêneros resgatada da API TMDB na etapa de ingestão de dados contém apenas os [IDs dos gêneros](Evidencias/print_dados_pais_e_genero_agrupados_como_lista.png). O ID e o nome do gênero foram extraídos diretamente da documentação da API TMDB pois, esses valores são fixos e há apenas 19 itens. Para padronizar, decidi traduzi-los para o português.
 - Obs.: Estou trabalhando com base nos gêneros da API TMDB pois muitos filmes dos arquivos CSV não são considerados do gênero de crime e guerra e no TMDB são. Evidêncio um exemplo disso na entrega da [etapa 3 na sprint 8](/Sprint%208/Desafio)
     ```python
     generos_rdd = spark.sparkContext.parallelize([\
@@ -172,10 +172,10 @@
     # Criando dataFrame de generos apartir do rdd
     df_generos = spark.createDataFrame(generos_rdd, ["id_genero", "genero"])
     ```
-- Evidência da extração dos dados de gênero na documentação da API TMDB:
+- Evidência da extração dos dados de gênero na documentação da API TMDB, utilizando o método `genre/Movie/List`:
 ![](Evidencias/print_evidencia_resgatando_dados_de_generos_de_filmes_na_api_TMDB.png)
 
-- Novamente usei a função ´explode()´ para dessa vez transformar a coluna 'generoTMDB' do df_filmes em múltiplas linhas, uma para cada gênero e após isso realizo a junção com o `df_genero`.
+- Novamente usei a função `explode()` para dessa vez transformar a coluna 'generoTMDB' do df_filmes em múltiplas linhas, uma para cada gênero e após isso realizo a junção com o dataframe de gênero: `df_genero`.
     ```python
     df_filme = df_filme.withColumn("id_genero", explode(split(col("generoTMDB"), ",")))
 
@@ -205,7 +205,7 @@
                         .withColumnRenamed("popularidadeTMDB", "popularidade_TMDB")
 
     ```
-- Adicionando a base do link para ter acesso ao poster dos filmes, pois de padrão da API é retornado apenas uma parte do link que é expecífico do filme.
+- Adicionando a base do link para ter acesso aos pôsteres dos filmes, pois de padrão da API é retornado apenas uma parte do link que é expecífico do filme.
     ```python
     df_filme = df_filme.withColumn('poster_link', concat(lit('https://image.tmdb.org/t/p/w500'), df_filme['poster_link']))
     ```
@@ -228,28 +228,30 @@
     dim_genero = df_generos
     ```
 - Criando dataframe fato filmes conforme o modelo dimensional dos meus dados.
-```python
-fato_filme = df_filme.select("id_filme", "id_genero", "id_pais", "orcamento", "popularidade_TMDB", "nota_media_TMDB", "numero_votos_TMDB", "nota_media_IMDB", "numero_votos_IMDB")
-```
+    ```python
+    fato_filme = df_filme.select("id_filme", "id_genero", "id_pais", "orcamento", "popularidade_TMDB", "nota_media_TMDB", "numero_votos_TMDB", "nota_media_IMDB", "numero_votos_IMDB")
+    ```
 - Imprimo a quantidade de linhas e o esquema de cada dataframe dimensional
-print(f"Quantidade de filmes: {dim_filme.count()}")
-dim_filme.printSchema()
-print(f"Quantidade de paises: {dim_pais.count()}")
-dim_pais.printSchema()
-print(f"Quantidade de gêneros: {dim_genero.count()}")
-dim_genero.printSchema()
-print(f"Quantidade de linhas da tabela fato filmes: {fato_filme.count()}")
-fato_filme.printSchema()
+    ```python
+    print(f"Quantidade de filmes: {dim_filme.count()}")
+    dim_filme.printSchema()
+    print(f"Quantidade de paises: {dim_pais.count()}")
+    dim_pais.printSchema()
+    print(f"Quantidade de gêneros: {dim_genero.count()}")
+    dim_genero.printSchema()
+    print(f"Quantidade de linhas da tabela fato filmes: {fato_filme.count()}")
+    fato_filme.printSchema()
+    ```
 
-- Por fim, salvo os dataframe dimensionais como arquivo parquet na camada Refined particionando de acordo cada dataframe.
-```python
-dim_filme.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_filme')
-dim_genero.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_genero')
-dim_pais.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_pais')
-fato_filme.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/fato_filme')
-
-job.commit()
-```
+- Por fim, com dados já confiavéis e tratados salvo os dataframes dimensionais como arquivos parquet na camada Refined, particionando de acordo cada dataframe.
+    ```python
+    dim_filme.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_filme')
+    dim_genero.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_genero')
+    dim_pais.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/dim_pais')
+    fato_filme.write.mode("overwrite").parquet(f'{S3_TARGET_PATH}/fato_filme')
+    
+    job.commit()
+    ```
 
 - Código completo com os devidos comentários em: [Codigos/job/job_processamento_camada_refined.py](Codigos/job/job_processamento_camada_refined.py)
 - Evidência do código no ETL job:
@@ -282,10 +284,10 @@ job.commit()
     - Defini a IAM role AWSGlueServiceRole-DesafioFinal-Etapa3 com as políticas evidenciadas acima.
     - O database de destino é de desafio-final-filmes-modelo-dimensional evidenciado acima, agendado sob demanda.
 ![](Evidencias/print_evidencia_configuracao_crawler.png)
-- Após a criação do crawler, foi executado o crawler criação das tabelas.
+- Após a criação, o crawler foi executado para gerar as tabelas.
 - Evidências de execução do crawler:
 ![](Evidencias/print_evidencia_execucao_crawler.png)
-- Com a execução do crawler foram criadas quatro tabelas: Dimensão de filmes, genero, pais e a tabela fato filmes.
+- Com a execução do crawler foram criadas quatro tabelas: Dimensão de filmes, gênero, país e a tabela fato filmes.
 - Evidência das tabelas criadas no database:
 ![](Evidencias/print_evidencia_tabelas_criadas_no_database_apos_execucao_crawler.png)
 ### 4️⃣ Executando consultas no AWS Athena
@@ -307,12 +309,12 @@ job.commit()
 ![](Evidencias/print_evidencia_consulta_athena_juncao_de_todas_tabelas_dimensao_com_tabela_fato_parte_1.png)
 ![](Evidencias/print_evidencia_consulta_athena_juncao_de_todas_tabelas_dimensao_com_tabela_fato_parte_2.png)
 
-- Consulta de soma e média de orçamento e quantidade de filmes por ano. Foi realizado uma subconsulta que faz uma média dos orçamento da tabela fato agrupados pelo id_filme para não ocorrer várias somas do orçamento do mesmo filme, visto que a tabela fato tem linhas multivaloradas de gênero e país.
+- Consulta da soma, média dos orçamentos e quantidade de filmes, agrupados por ano. Foi realizado uma subconsulta que faz uma média dos orçamentos da tabela fato agrupando pelo id_filme para não ocorrer várias somas dos orçamentos do mesmo filme, visto que a tabela fato tem linhas multivaloradas de gênero e país.
 ![](Evidencias/print_evidencia_athena_consulta_orcamento_por_ano.png)
 
-- Consulta da média de avaliações do TMDB, IMDB e popularidade dos filmes de crime por gêneros para se saber quais gêneros mais 'combinam' com os de crime. 
+- Consulta da média de avaliações do TMDB, IMDB e popularidade dos filmes de crime agrupando por gêneros para saber quais gêneros mais 'combinam' com os de crime. 
 ![](Evidencias/print_evidencia_consulta_media_de_avaliacoes_dos_filmes_de_crime_por_generos.png)
-- ***Todas as consultas maiores em sql: [Codigos/consultas_sql/](Codigos/consultas_sql/)***
+- ***Todas as consultas maiores em sql estão disponíveis em: [Codigos/consultas_sql/](Codigos/consultas_sql/)***
 
 ### Após analisar os dados da camada Refined e ver que estão padronizados, multidimensionados e são confiáveis, os dados estão prontos para geração de relatórios da próxima etapa do desafio final.
 
