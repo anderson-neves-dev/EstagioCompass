@@ -1,5 +1,5 @@
 # Sobre o desafio
-- O desafio desta sprint é avançar para a quarta do desafio final, que envolve o processamento da Camada Refined. Nesta fase, o objetivo é assegurar que os dados sejam confiáveis e realizar a modelagem multidimensional dos dados contidos na camada trusted da etapa 3 do desafio.
+- O desafio desta sprint consiste na entrega da quarta etapa do desafio final, que envolve o processamento da Camada Refined. Nesta fase, o objetivo é assegurar que os dados sejam confiáveis e realizar a modelagem multidimensional dos dados contidos na camada trusted da etapa 3 do desafio.
     
 ## 🏆 Tema Desafio final
 
