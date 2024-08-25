@@ -315,7 +315,7 @@ job.commit()
 ![](Evidencias/print_evidencia_consulta_media_de_avaliacoes_dos_filmes_de_crime_por_generos.png)
 - ***Todas as consultas maiores em sql: [Codigos/consultas_sql/](Codigos/consultas_sql/)***
 
-### Após analisar os dados da camada Refined e ver que estão padronizados, multidimensinais e são confiáveis, os dados estão prontos para geração de relatórios da próxima etapa do desafio final.
+### Após analisar os dados da camada Refined e ver que estão padronizados, multidimensionados e são confiáveis, os dados estão prontos para geração de relatórios da próxima etapa do desafio final.
 
 ### Referências
 
