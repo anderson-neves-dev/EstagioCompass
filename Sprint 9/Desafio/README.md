@@ -59,8 +59,8 @@
 
 ### 2️⃣ Criar o job para processamento da camada Refined
 
-- Após criar o esquema dimensional que iria utilizar, o segundo passo foi criar o job responsável por realizar o processamento de modelagem desses dados utilizando spark no ETL job dos serviços AWS Glue.
-- Configuirações do job:
+- Após definir o esquema dimensional que iria utilizar, o segundo passo foi criar o job responsável por realizar o processamento de modelagem desses dados utilizando spark no ETL job dos serviços AWS Glue.
+- Configurações do job:
 ![](Evidencias/print_configuracao_job_parte_1.png)
 - Adicionei uma IAM role que foi criada na terceira etapa para conseguir utilizar outros serviços da AWS. As políticas foram:
     - AmazonS3FullAcess;
