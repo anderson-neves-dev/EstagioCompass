@@ -121,6 +121,12 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
   - **No Exercício de Apache Spark pratiquei a aplicação de recusos para manipulação de dataframe e consulta com SQL utilizando funções pyspark sql e também consultas em dataframes em SQL utilizando spark.sql com o framework Apache Spark.**
   - **Desafio: Praticado o processamento da camada trusted, serviços da AWS Glue como: ETL Jobs, Crawler e Athena além da prática com novas apredizagens da ferramenta Spark.**
 - [Sprint 9](Sprint%209/)
-  - **Na sprint 9 realizei estudos para a prova de certificação Cloud Practitioner fazendo diversos simulados como o: Amazon AWS Certified Cloud Practitioner - AWS Certified Cloud Practitioner (CLF-C01) Exam, disponibilizado na seção de Conteúdo Complementar da trilha. Também realizei o curso com simulado na udemy: AWS Cloud Practitioner (CLF-C02) - Simulados em Português. Além dos estudos para a prova de certificação, estudei sobre a ferramenta Amazon QuickSight vendo diversos cursos no YouTube e também um disponibilizado na seção de Conteúdo Complementar da trilha: Amazon QuickSight Learning Series.**
-  - **Realizei o desafio dessa sprint que foi a quarta entrega do desafio final. Nessa entrega foi práticado nos laboratórios da AWS os serviços como: ETL Jobs com spark, Crawler, Athena e Bucket S3 para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
+  - **Na sprint 9 realizei estudos para a prova de certificação Cloud Practitioner fazendo diversos simulados como o: Amazon AWS Certified Cloud Practitioner - AWS Certified Cloud Practitioner (CLF-C01) Exam, disponibilizado na seção de Conteúdo Complementar da trilha. Também realizei o curso com simulado na udemy: AWS Cloud Practitioner (CLF-C02) - Simulados em Português.**
+  - **Além dos estudos para a prova de certificação, estudei sobre a ferramenta Amazon QuickSight vendo diversos cursos no YouTube e também o disponibilizado na seção de Conteúdo Complementar da trilha: Amazon QuickSight Learning Series.**
+  - **Realizei o desafio dessa sprint que foi a quarta entrega do desafio final. Nessa entrega foi praticado nos laboratórios da AWS os serviços como:**
+    - **AWS Glue (ETL Jobs com Spark, Database, Crawler);**
+    - **Athena;**
+    - **IAM Role;**
+    - **Bucket S3.**
+  - **Esses serviços foram utilizados para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
  
