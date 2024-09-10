@@ -1,8 +1,8 @@
 # Sobre o desafio da Sprint 10
-- O desafio desta sprint consiste na entrega da ultima etapa do desafio final. Nesta fase, o objetivo é criar uma dashboard com os dados contidos da camada refined para obter insights utilizando a ferramenta da aws QuickSight.
+- O desafio desta sprint consiste na entrega da última etapa do desafio final. Nesta fase, o objetivo é criar uma dashboard com os dados contidos da camada refined para obter insights utilizando a ferramenta da aws QuickSight.
     
 ## 🏆 Tema Desafio final
-#### Como tema do desafio final, escolhi analisar as combinações entre gêneros cinematógráficos com filmes de crime de 2012 à 2022.
+#### Como tema do desafio final, escolhi analisar as combinações entre gêneros cinematográficos com filmes de crime de 2012 à 2022.
 
 #### Busco responder as seguintes questões:
 
@@ -15,7 +15,7 @@
 ### 1️⃣ Criar um conjunto de dados no QuickSight
 
 - A primeira etapa foi criar um novo conjunto de dados na ferramenta da AWS QuickSight, esses dados foram provindos da camada refined. 
-- Ao analisar bem os dados, percebi que uma informação que seria muito importante para gerar insights valiosos era a de receita e até então não tinha esse dado, também foquei a minha análise somente em filmes de crime e não mais com de guerra. Então foi necessário realizar uma modificação na minha função lambda de ingestão dos dados do TMDB da camada Raw Zone para conseguir ter a informação de receita dos filmes, além de pegar somente os dados dos filmes de crime. 
+- Ao analisar bem os dados, percebi que uma informação muito importante para gerar insights valiosos era a de receita e até então não tinha esse dado, também foquei a minha análise somente em filmes de crime e não mais com os de guerra. Então foi necessário realizar uma modificação na minha função lambda de ingestão dos dados do TMDB da camada Raw Zone para conseguir ter a informação da receita dos filmes, além de pegar somente os dados dos filmes de crime. 
 - O código com as alterações da função lambda está em: [Codigos/lambda/ingestao-dados-do-tmdb-desafio-final.py](Codigos/lambda/ingestao-dados-do-tmdb-desafio-final.py)
 - Evidência de execução da função lambda alterada: 
   ![](Evidencias/print_evidencia_funcao_lambda_executada.png)
@@ -23,19 +23,19 @@
   ![](Evidencias/print_evidencia_funcao_lambda_json.png)
 - Após essa mudança, realizei o processamento e refinamento desses dados da camada trusted e refined.
   - Códigos dos jobs em spark alterados do processamento da camada trusted e refined: [Codigos/jobs/](Codigos/jobs/)
-  - Evidencia de execução dos jobs alterados na AWS Glue:
+  - Evidência de execução dos jobs alterados na AWS Glue:
     ![](Evidencias/print_evidencia_de_execucao_job_tmdb_processamento_trusted.png)
     ![](Evidencias/print_evidencia_de_execucao_job_csv_processamento_trusted.png)
     ![](Evidencias/print_evidencia_de_execucao_job_processamento_refined.png)
-- Com os arquivos parquet dimensionados na camada refined no bucket s3 executei novamente o crawler da etapa anterior para gerar as tabelas no banco de dados.
+- Com os arquivos parquet dimensionados na camada refined no bucket s3, executei novamente o crawler da etapa anterior para gerar as tabelas no banco de dados.
   ![](Evidencias/print_evidencia_crawler_executado_com_sucesso.png)
 - Evidência dos dados no Athena:
   ![](Evidencias/print_evidencia_database_com_dados_dimensionais_no_athena.png)
 - Com essas mudanças os dados ficaram no seguinte modelo dimensional na camada refined:
 ![](Evidencias/modelo_dimensional.png)
 
-- Com os dados completos na camada refined e catalogados como um database, no quicksight criei um conjunto de dados com a fonte Athena, selecionei o banco de dados que estão as minhas tabelas e adicionei a tabela fato.
-- Após isso, adicionei a tabela dimensão de filmes e de gêneros, realizando a junção dessas tabelas com a tabela fato através de um inner join entre as chaves identificadoras que cada corresponde.
+- Com os dados completos na camada refined e catalogados como um database, no QuickSight criei um conjunto de dados com a fonte Athena, selecionei o banco de dados que estão as minhas tabelas e adicionei a tabela fato.
+- Após isso, adicionei a tabela dimensão de filmes e de gêneros, realizando a junção dessas tabelas com a tabela fato através de um inner join entre as chaves identificadoras que cada uma corresponde.
 - Para realizar algumas análises, adicionei dados com consultas personalizadas em SQL. 
   - Uma dessas consultas, foi para filtragem dos 5 filmes mais populares, selecionando apenas o id desses filmes, popularidade e concatenando os gêneros desses filmes.
   ![](Evidencias/print_conjunto_de_dados_consulta_personalizada_top5_filmes_populares.png)
@@ -45,7 +45,7 @@
     ![](Evidencias/print_conjunto_de_dados_consulta_personalizada_top5_filmes_orcamento_receita_fixo.png)
   - Foi realizado a junção dessas consultas personalizadas por left join, para não implicar em uma filtragem geral dos dados.
 
-- Por fim, o conjunto de dados no quicksight ficou da seguinte forma:
+- Por fim, o conjunto de dados no QuickSight ficou da seguinte forma:
 ![](Evidencias/print_conjunto_de_dados_quicksight.png)
 
 ### 2️⃣ Criação dos gráficos
