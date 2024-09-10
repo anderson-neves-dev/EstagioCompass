@@ -50,13 +50,13 @@
 
 ### 2️⃣ Criação dos gráficos
 - Com o conjunto de dados estabelecido, o próximo passo foi criar os gráficos da minha dashboard sobre o meu tema.
-- o Primeiro passo foi criar um filtro geral para a minha planilha para remover os filmes que somente são do gênero de crime, pois minha analise visa a combinação dos gêneros com o de crime. Apenas dois filmes foram excluidos com o filtro.
+- O primeiro passo foi criar um filtro geral para a minha planilha a fim de remover os filmes que somente são do gênero de crime, pois minha análise visa a combinação dos gêneros com o de crime. Apenas dois filmes foram excluídos com o filtro.
 ![](Evidencias/print_quicksight_filtro_geral.png) 
 
 - Adicionei alguns KPI: 
    - Quantidade de filmes analisados:
   ![](Evidencias/print_quicksight_KPI_qtd_filmes.png)
-    - Quantidade de gênero:
+    - Quantidade de gêneros:
   ![](Evidencias/print_quicksight_KPI_qtd_genero.png)
     - Média geral de popularidade:
     ![](Evidencias/print_quicksight_KPI_media_popularidade.png)
@@ -65,22 +65,22 @@
     ![](Evidencias/print_quicksight_media_de_avaliacao_TMDB.png)
     - Soma total de receita e orçamento, com aumento da margem de lucro em porcentagem.
     ![](Evidencias/print_quicksight_KPI_total_receita_e_orcamento.png)
-- Nuvem de palavras dos gêneros com a frequencia que eles apareceram nos filmes de crime.
+- Nuvem de palavras dos gêneros com a frequência que eles apareceram combinados com os filmes de crime.
   ![](Evidencias/print_quicksight_nuvem_de_palavras_genero.png)
-- Gráfico de barras horizontal com a quantidade de filmes de crime que os gêneros aparecem.
+- Gráfico de barras horizontal com a quantidade de filmes de crime combinados com cada gênero. 
   ![](Evidencias/print_quicksight_grafico_barras_quantidade_filmes_crime_com_generos.png)
-- Gráfico de barras horizontal com a média de popularidade por gênero dos filmes de crime.
+- Gráfico de barras horizontal com a média de popularidade de filmes de crime combinados com cada gênero.
     ![](Evidencias/print_quicksight_grafico_barras_horizontal_popularidade_media_por_genero.png)
-- Gráfico de barras empilhadas horizontal com as medias de avaliações de cada plataforma por gênero.
+- Gráfico de barras empilhadas horizontal com as médias de avaliações de cada plataforma por gênero.
   ![](Evidencias/print_quicksight_grafico_barras_empilhadas_media_de_avaliacoes_por_genero.png)
 - Gráfico de barras da média de margem de lucratividade dos filmes de crime por gêneros. Obs.: Para essa margem percentual criei um campo calculado entre a receita e orçamento dos filmes.
   ![](Evidencias/print_quicksight_campo_calculado_margem_percentual_de_lucro.png)
   ![](Evidencias/print_quicksight_media_percentual_de_lucratividade_por_genero.png)
-- Gráfico de barras horizontal da média de orçamento dos filmes de crime por gênero.
+- Gráfico de barras vertical com a média de orçamento de filmes de crime combinados com cada gênero.
   ![](Evidencias/print_quicksight_grafico_barras_vertical_media_orcamento_por_genero.png)
-- Gráfico de barras horizontal dos 5 filmes de crime mais populares do período.
+- Gráfico de barras vertical dos 5 filmes de crime mais populares do período.
   ![](Evidencias/print_quicksight_grafico_horizontal_5_filmes_crime_mais_populares.png)
-- Gráfico de barras horizontal dos 5 filmes de crime que tiveram os maiores lucros do período.
+- Gráfico de barras vertical dos 5 filmes de crime que tiveram os maiores lucros do período.
   ![](Evidencias/print_quicksight_grafico_barras_horizontal_5_filmes_mais_lucrativos.png)
 - Tabela dos 5 filmes mais populares do período.
   ![](Evidencias/print_quicksight_tabela_5_filmes_mais_populares.png)
@@ -90,7 +90,7 @@
 
 ### 3️⃣ Organização da dashboard
 
-- Com os gráficos prontos, organizei a minha dashboard utilizando o método "Z", com um layout organizado e fluído para raciocínio para analise.
+- Com os gráficos prontos, organizei a minha dashboard utilizando o método "Z", com um layout organizado e fluído para análise.
 - Por fim, a dashboard ficou da seguinte forma:
   ![](Evidencias/dashboard_parte1.png)
   ![](Evidencias/dashboard_parte2.png)
