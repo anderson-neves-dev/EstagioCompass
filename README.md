@@ -54,16 +54,14 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
   
 
 ---
-## 🏆 Tema do desafio final
-### Como tema do desafio final, escolhi analisar os filmes dos gêneros crime e guerra lançados entre 2012 e 2022. O foco da análise é entender a relação entre a média de avaliação, popularidade e orçamento, os generos que mais combinam e as tendências de orçamento e popularidade.
-- Busco responder as seguintes questões:
-  - Qual é a média de avaliação e a média de popularidade dos 10 filmes com os maiores orçamentos lançados entre 2012 e 2022 para cada um dos gêneros guerra e crime? Os filmes de guerra e crime analisados têm uma aceitação geral positiva de acordo com a média de popularidade para seus respectivos gêneros?
-  
-  - Quais os gêneros que mais "combinam" com os gêneros de crime e guerra?
-  
-  - Quais os paises que mais produziram filmes desses generos diante esse intervalo de tempo?
-  
-  - A média dos orçamentos para filmes dos gêneros 'guerra' e 'crime' aumentou de 2012 a 2022? E a média de popularidade desses filmes seguiu uma tendência similar durante o mesmo período?
+## 🏆 Tema Desafio final
+#### Como tema do desafio final, escolhi analisar as combinações entre gêneros cinematógráficos com filmes de crime de 2012 à 2022.
+
+#### Busco responder as seguintes questões:
+
+- Quais os gêneros cinematográfico que mais combinam com os filmes de crime?  Existem gêneros que combinados com o de crime são mais lucrativos ou mais populares?
+
+- Os cinco filmes de crime mais populares e os cinco mais lucrativos possuem um padrão de gêneros combinados?
 ---
 ## 🧩 Sprints 
 
@@ -129,4 +127,6 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
     - **IAM Role;**
     - **Bucket S3.**
   - **Esses serviços foram utilizados para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
- 
+ - [Sprint 10](Sprint%2010/)
+  - **Realizei o desafio dessa sprint que foi a ultima entrega do desafio final. Nessa entrega foi realizei a construção de uma dashboard utilizando a ferramenta QuickSight da AWS com os dados contidos na camada refined do desafio final. Essa dashboard foi de super importancia para geração de insights valiosos para produtores de filmes de crime**
+  - **Esses serviços foram utilizados para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
