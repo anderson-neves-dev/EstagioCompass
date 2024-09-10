@@ -114,7 +114,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
     - **Desafio: Foram praticados os conhecimento em python para o serviço Aws Lambda para automação de requisiçoes via http e armazenamento em bucket s3, além de configurações de outros serviços como EventBrigde para automatização de execução de funções lambda.** 
 - [Sprint 8](Sprint%208/)
   - **Curso realizado: Tutoriais Técnicos - Analytics - Português.**
-    - Apredizagem no processo ETL com os serviços da AWS Glue desde a padronização e catalogação dos dados até a parte de gerar insights com o Quicksight.
+    - Aprendizagem no processo ETL com os serviços da AWS Glue desde a padronização e catalogação dos dados até a parte de gerar insights com o Quicksight.
   - **Com os exercícios de Geração em massa de dados pratiquei operações de gerar valores aleatórios, manipulação de listas com python e armazenamento de listas em arquivos csv e txt.**
   - **No Exercício de Apache Spark pratiquei a aplicação de recusos para manipulação de dataframe e consulta com SQL utilizando funções pyspark sql e também consultas em dataframes em SQL utilizando spark.sql com o framework Apache Spark.**
   - **Desafio: Praticado o processamento da camada trusted, serviços da AWS Glue como: ETL Jobs, Crawler e Athena além da prática com novas apredizagens da ferramenta Spark.**
@@ -128,5 +128,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
     - **Bucket S3.**
   - **Esses serviços foram utilizados para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
  - [Sprint 10](Sprint%2010/)
-  - **Realizei o desafio dessa sprint que foi a ultima entrega do desafio final. Nessa entrega foi realizei a construção de uma dashboard utilizando a ferramenta QuickSight da AWS com os dados contidos na camada refined do desafio final. Essa dashboard foi de super importancia para geração de insights valiosos para produtores de filmes de crime**
-  - **Esses serviços foram utilizados para modelagem multidimensional dos dados contidos na camada Trusted, esses dados multidimensionais foram armazenados na camada Refined deixando-os confiáveis e padronizados para posteriormente serem gerados insights.**
+    - **Curso realizado: Complete Introduction to Amazon QuickSight.**
+      - Aprendizagem na utilização da ferramenta da AWS QuickSight para construção de dashboards.
+  - **Realizei o desafio dessa sprint que foi a ultima entrega do desafio final. Nessa entrega, realizei a construção de uma dashboard utilizando a ferramenta QuickSight da AWS com os dados contidos na camada refined do desafio final. Essa dashboard foi de super importância para geração de insights valiosos para produtores e distribuidoras de filmes de crime.**
+
