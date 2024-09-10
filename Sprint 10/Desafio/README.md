@@ -15,7 +15,7 @@
 ### 1️⃣ Criar um conjunto de dados no QuickSight
 
 - A primeira etapa foi criar um novo conjunto de dados na ferramenta da AWS QuickSight, esses dados foram provindos da camada refined. 
-- Ao analisar bem os dados, percebi que uma informação muito importante para gerar insights valiosos era a de receita e até então não tinha esse dado, também foquei a minha análise somente em filmes de crime e não mais com os de guerra. Então foi necessário realizar uma modificação na minha função lambda de ingestão dos dados do TMDB da camada Raw Zone para conseguir ter a informação da receita dos filmes, além de pegar somente os dados dos filmes de crime. 
+- Ao analisar bem os dados, percebi que uma informação muito importante para gerar insights valiosos era a de receita e até então não tinha esse dado, também foquei a minha análise somente em filmes de crime e não mais com os de guerra. Então foi necessário realizar uma modificação na minha função lambda de ingestão dos dados do TMDB da camada Raw Zone para conseguir ter a informação da receita dos filmes, além de pegar somente os dados dos filmes de crime lançados entre 2012 a 2022. 
 - O código com as alterações da função lambda está em: [Codigos/lambda/ingestao-dados-do-tmdb-desafio-final.py](Codigos/lambda/ingestao-dados-do-tmdb-desafio-final.py)
 - Evidência de execução da função lambda alterada: 
   ![](Evidencias/print_evidencia_funcao_lambda_executada.png)
