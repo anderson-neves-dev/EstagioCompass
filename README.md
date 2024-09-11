@@ -55,7 +55,7 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
 
 ---
 ## 🏆 Tema Desafio final
-#### Como tema do desafio final, escolhi analisar as combinações entre gêneros cinematógráficos com filmes de crime de 2012 à 2022.
+#### Como tema do desafio final, escolhi analisar as combinações entre gêneros cinematográficos com filmes de crime de 2012 à 2022.
 
 #### Busco responder as seguintes questões:
 
@@ -131,5 +131,5 @@ Para a conclusão do meu curso técnico, optei por fazer uma pesquisa sobre os c
     - **Curso realizado: Complete Introduction to Amazon QuickSight.**
       - Aprendizagem na utilização da ferramenta da AWS QuickSight para construção de dashboards.
     - **Realizei o desafio dessa sprint que foi a ultima entrega do desafio final. Nessa entrega, realizei a construção de uma dashboard utilizando a ferramenta QuickSight da AWS com os dados contidos na camada refined do desafio final. Essa dashboard foi de super importância para geração de insights valiosos para produtores e distribuidoras de filmes de crime.**
-    - **Além do desafio realizei diversos simulados para o exame de certificação da AWS**
+    - **Além do desafio realizei diversos simulados para o exame de certificação da AWS.**
 
