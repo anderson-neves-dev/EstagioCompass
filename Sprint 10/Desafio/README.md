@@ -94,9 +94,9 @@
 - Por fim, a dashboard ficou da seguinte forma:
   ![](Evidencias/dashboard_parte1.png)
   ![](Evidencias/dashboard_parte2.png)
-  ![](Evidencias/dahsboard_parte3.png)
+  ![](Evidencias/dashboard_parte3.png)
   ![](Evidencias/dashboard_parte4.png)
- - PDF da dashboard: [Evidencias/Analise_de_combinacoes_entre_generos_cinematograficos_com_filmes_de_crime_de_2012_a_2022.pdf](Evidencias/Analise_de_combinacoes_entre_generos_cinematograficos_com_filmes_de_crime_de_2012_a_2022.pdf.pdf)
+ - PDF da dashboard: [Evidencias/Analise_de_combinacoes_entre_generos_cinematograficos_com_filmes_de_crime_de_2012_a_2022.pdf](Evidencias/Analise_de_combinacoes_entre_generos_cinematograficos_com_filmes_de_crime_de_2012_a_2022.pdf)
 ### 4️⃣ Insights analisados
 
 - Os gêneros que mais aparecem em filmes de crime são Suspense, Ação, Drama e Comédia, seguidos de Mistério e Aventura​.
